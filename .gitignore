@@ -1,7 +1,6 @@
 # Xcode
 build/
-Carthage/Checkouts/
-!Carthage/Build/
+Carthage/
 xcuserdata/
 *.xccheckout
 *.gcno
