@@ -14,8 +14,8 @@
 		CE0508AC1BDDE78B00B21C8C /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0508A81BDDE78B00B21C8C /* Scenario.swift */; settings = {ASSET_TAGS = (); }; };
 		CE0508AD1BDDE78B00B21C8C /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0508A91BDDE78B00B21C8C /* Step.swift */; settings = {ASSET_TAGS = (); }; };
 		CE0508AE1BDDE78B00B21C8C /* StepDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0508AA1BDDE78B00B21C8C /* StepDefinition.swift */; settings = {ASSET_TAGS = (); }; };
-		CE0508BD1BDDECCB00B21C8C /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0508BC1BDDECCB00B21C8C /* Nimble.framework */; };
-		CE0873DA1BDDEDB000A0E6A3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0873D91BDDEDB000A0E6A3 /* Quick.framework */; };
+		CEB298571BDDF6A100ACA986 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0873D91BDDEDB000A0E6A3 /* Quick.framework */; };
+		CEB298581BDDF6A300ACA986 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0508BC1BDDECCB00B21C8C /* Nimble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,8 @@
 		CE0508A81BDDE78B00B21C8C /* Scenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		CE0508A91BDDE78B00B21C8C /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		CE0508AA1BDDE78B00B21C8C /* StepDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepDefinition.swift; sourceTree = "<group>"; };
-		CE0508BC1BDDECCB00B21C8C /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE0873D91BDDEDB000A0E6A3 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE0508BC1BDDECCB00B21C8C /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
+		CE0873D91BDDEDB000A0E6A3 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,8 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE0873DA1BDDEDB000A0E6A3 /* Quick.framework in Frameworks */,
-				CE0508BD1BDDECCB00B21C8C /* Nimble.framework in Frameworks */,
+				CEB298571BDDF6A100ACA986 /* Quick.framework in Frameworks */,
+				CEB298581BDDF6A300ACA986 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +351,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Scenarios/Info.plist;
 				INSTALL_PATH = "@rpath";
@@ -375,6 +376,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Scenarios/Info.plist;
 				INSTALL_PATH = "@rpath";

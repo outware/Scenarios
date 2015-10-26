@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE05088C1BDDE75100B21C8C"
-               BuildableName = "Scenarios-iOS.framework"
+               BuildableName = "Scenarios.framework"
                BlueprintName = "Scenarios-iOS"
                ReferencedContainer = "container:Scenarios.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE05088C1BDDE75100B21C8C"
-            BuildableName = "Scenarios-iOS.framework"
+            BuildableName = "Scenarios.framework"
             BlueprintName = "Scenarios-iOS"
             ReferencedContainer = "container:Scenarios.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE05088C1BDDE75100B21C8C"
-            BuildableName = "Scenarios-iOS.framework"
+            BuildableName = "Scenarios.framework"
             BlueprintName = "Scenarios-iOS"
             ReferencedContainer = "container:Scenarios.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE05088C1BDDE75100B21C8C"
-            BuildableName = "Scenarios-iOS.framework"
+            BuildableName = "Scenarios.framework"
             BlueprintName = "Scenarios-iOS"
             ReferencedContainer = "container:Scenarios.xcodeproj">
          </BuildableReference>
