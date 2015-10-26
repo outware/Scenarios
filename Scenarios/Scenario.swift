@@ -9,7 +9,7 @@
 /// After the last step is defined, the scenario is compiled into a Quick example
 /// block by looking up the step definitions based on the step names. The test
 /// fails if any of the steps are undefined.
-public final class Scenario {
+public final class Scenario: Preparable {
   private let name: String
   private var stepDescriptions: [StepMetadata] = []
 
@@ -17,14 +17,9 @@ public final class Scenario {
     self.name = name
   }
 
-  public func Given(stepDescription: String, inFile filePath: String = __FILE__, atLine lineNumber: UInt = __LINE__) -> Self {
-    stepDescriptions.append(description: stepDescription, filePath: filePath, lineNumber: lineNumber)
-    return self
-  }
-
-  public func Then(stepDescription: String, inFile filePath: String = __FILE__, atLine lineNumber: UInt = __LINE__) -> Self {
-    stepDescriptions.append(description: stepDescription, filePath: filePath, lineNumber: lineNumber)
-    return self
+  public func Given(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Prepared {
+    registerScenario(description, file: file, line: line)
+    return Prepared(self)
   }
 
   deinit {
@@ -58,6 +53,12 @@ public final class Scenario {
         }
       }
     }
+  }
+}
+
+extension Scenario: ScenarioBuilder {
+  func registerScenario(description: String, file: String, line: UInt) {
+    stepDescriptions.append(description: description, filePath: file, lineNumber: line)
   }
 }
 
