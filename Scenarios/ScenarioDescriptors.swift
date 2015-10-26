@@ -28,17 +28,17 @@ public final class Prepared: Assertable, Actionable, Extendable {
   }
 
   public func And(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Self {
-    builder.registerScenario(description, file: file, line: line)
+    builder.addStep(description, file: file, line: line)
     return self
   }
 
   public func When(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Actioned {
-    builder.registerScenario(description, file: file, line: line)
+    builder.addStep(description, file: file, line: line)
     return Actioned(builder)
   }
 
   public func Then(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Asserted {
-    builder.registerScenario(description, file: file, line: line)
+    builder.addStep(description, file: file, line: line)
     return Asserted(builder)
   }
 }
@@ -51,12 +51,12 @@ public final class Actioned: Assertable, Extendable {
   }
 
   public func And(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Self {
-    builder.registerScenario(description, file: file, line: line)
+    builder.addStep(description, file: file, line: line)
     return self
   }
 
   public func Then(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Asserted {
-    builder.registerScenario(description, file: file, line: line)
+    builder.addStep(description, file: file, line: line)
     return Asserted(builder)
   }
 }
@@ -69,7 +69,7 @@ public final class Asserted: Extendable {
   }
 
   public func And(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Self {
-    builder.registerScenario(description, file: file, line: line)
+    builder.addStep(description, file: file, line: line)
     return self
   }
 }

@@ -22,7 +22,7 @@ public final class Scenario: Preparable {
   }
 
   public func Given(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Prepared {
-    registerScenario(description, file: file, line: line)
+    addStep(description, file: file, line: line)
     return Prepared(self)
   }
 
@@ -61,7 +61,7 @@ public final class Scenario: Preparable {
 }
 
 extension Scenario: ScenarioBuilder {
-  func registerScenario(description: String, file: String, line: UInt) {
+  func addStep(description: String, file: String, line: UInt) {
     stepDescriptions.append(description: description, file: file, line: line)
   }
 }
