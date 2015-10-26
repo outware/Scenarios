@@ -25,7 +25,7 @@ public final class Scenario: Preparable {
   deinit {
     let description = stepDescriptions.map { $0.1 }.joinWithSeparator(", ")
     let unresolvedSteps = stepDescriptions.map { metadata in
-      { (metadata, StepDefinition.lookup(metadata.description, forStepInFile: metadata.filePath, atLine: metadata.lineNumber)) }
+      { (metadata, StepDefinition.lookup(metadata.description, forStepInFile: metadata.file, atLine: metadata.line)) }
     }
 
     it(description) {
@@ -46,7 +46,7 @@ public final class Scenario: Preparable {
 
       switch result {
       case let .MissingStep(metadata):
-        fail("couldn't match step description: '\(metadata.description)'", file: metadata.filePath, line: metadata.lineNumber)
+        fail("couldn't match step description: '\(metadata.description)'", file: metadata.file, line: metadata.line)
       case let .MatchedActions(actions):
         for action in actions {
           action()
@@ -58,11 +58,11 @@ public final class Scenario: Preparable {
 
 extension Scenario: ScenarioBuilder {
   func registerScenario(description: String, file: String, line: UInt) {
-    stepDescriptions.append(description: description, filePath: file, lineNumber: line)
+    stepDescriptions.append(description: description, file: file, line: line)
   }
 }
 
-private typealias StepMetadata = (description: String, filePath: String, lineNumber: UInt)
+private typealias StepMetadata = (description: String, file: String, line: UInt)
 
 private enum ResolvedSteps {
   case MissingStep(StepMetadata)
