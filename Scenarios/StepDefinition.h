@@ -5,14 +5,16 @@
 typedef void (^StepDefinitionFunc)(void);
 typedef StepDefinitionFunc _Nullable (^LookupFunc)(void);
 
+@class Step;
+
 @interface StepDefinition : XCTestCase
 
 - (void)steps;
 
-- (void)Given:(nonnull NSString *)description definition:(nonnull void (^)(void))definition;
+- (void)registerStepWithDescription:(nonnull NSString *)description definition:(nonnull void (^)(void))definition;
 
-- (void)Then:(nonnull NSString *)description definition:(nonnull void (^)(void))definition;
++ (nonnull LookupFunc)lookup:(nonnull NSString *)step forStepInFile:(nonnull NSString *)filePath atLine:(NSUInteger)lineNumber;
 
-+ (nonnull LookupFunc)lookup:(nonnull NSString *)step;
++ (nullable Step *)executingStep;
 
 @end

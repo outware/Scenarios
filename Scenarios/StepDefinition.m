@@ -14,19 +14,33 @@
 
 #pragma mark Defining steps
 
-- (void)Given:(NSString *)description definition:(void (^)(void))definition {
+- (void)registerStepWithDescription:(NSString *)description definition:(void (^)(void))definition {
   self.class.definitions[description] = [definition copy];
 }
 
-- (void)Then:(NSString *)description definition:(void (^)(void))definition {
-  self.class.definitions[description] = [definition copy];
-}
+#pragma mark Global step definitions
 
-+ (LookupFunc)lookup:(NSString *)step {
++ (LookupFunc)lookup:(NSString *)description forStepInFile:(nonnull NSString *)filePath atLine:(NSUInteger)lineNumber {
+  Step *step = [[Step alloc] initWithName:description inFile:filePath atLine:lineNumber];
   Class class = self.class;
+
   return ^StepDefinitionFunc _Nullable{
     NSDictionary *definitions = class.definitions;
-    return definitions[step];
+    void (^definition)(void) = definitions[description];
+
+    if (definition) {
+      return ^{
+        self.class.executingStep = step;
+        @try {
+          definition();
+        }
+        @finally {
+          self.class.executingStep = nil;
+        }
+      };
+    } else {
+      return nil;
+    }
   };
 }
 
@@ -35,6 +49,16 @@
   static dispatch_once_t token;
   dispatch_once(&token, ^{ definitions = [NSMutableDictionary new]; });
   return definitions;
+}
+
+static Step *executingStep;
+
++ (Step *)executingStep {
+  return executingStep;
+}
+
++ (void)setExecutingStep:(nullable Step *)step {
+  executingStep = step;
 }
 
 @end
