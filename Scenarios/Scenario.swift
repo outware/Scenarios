@@ -9,20 +9,20 @@
 /// After the last step is defined, the scenario is compiled into a Quick example
 /// block by looking up the step definitions based on the step names. The test
 /// fails if any of the steps are undefined.
-final class Scenario {
+public final class Scenario {
   private let name: String
   private var stepDescriptions: [StepMetadata] = []
 
-  init(_ name: String) {
+  public init(_ name: String) {
     self.name = name
   }
 
-  func Given(stepDescription: String, inFile filePath: String = __FILE__, atLine lineNumber: UInt = __LINE__) -> Self {
+  public func Given(stepDescription: String, inFile filePath: String = __FILE__, atLine lineNumber: UInt = __LINE__) -> Self {
     stepDescriptions.append(description: stepDescription, filePath: filePath, lineNumber: lineNumber)
     return self
   }
 
-  func Then(stepDescription: String, inFile filePath: String = __FILE__, atLine lineNumber: UInt = __LINE__) -> Self {
+  public func Then(stepDescription: String, inFile filePath: String = __FILE__, atLine lineNumber: UInt = __LINE__) -> Self {
     stepDescriptions.append(description: stepDescription, filePath: filePath, lineNumber: lineNumber)
     return self
   }

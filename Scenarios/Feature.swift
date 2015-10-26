@@ -2,19 +2,19 @@
 
 /// Subclass `Feature` and override `scenarios()` to define the steps for the
 /// scenarios in your feature.
-class Feature: QuickSpec {
-  override func setUp() {
+public class Feature: QuickSpec {
+  override public func setUp() {
     super.setUp()
     continueAfterFailure = false
   }
 
-  func scenarios() {}
+  public func scenarios() {}
 
-  override func spec() {
+  override public func spec() {
     scenarios()
   }
 
-  override func recordFailureWithDescription(description: String, inFile filePath: String, atLine lineNumber: UInt, expected: Bool) {
+  override public func recordFailureWithDescription(description: String, inFile filePath: String, atLine lineNumber: UInt, expected: Bool) {
     if let sourceLocation = StepDefinition.executingStep?.sourceLocation {
       super.recordFailureWithDescription(description, inFile: sourceLocation.filePath, atLine: sourceLocation.lineNumber, expected: expected)
     } else {
