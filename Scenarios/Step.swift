@@ -1,11 +1,11 @@
 //  Copyright © 2015 Outware Mobile. All rights reserved.
 
-struct SourceLocation {
+internal struct SourceLocation {
   var filePath: String
   var lineNumber: UInt
 }
 
-class Step: NSObject {
+internal struct Step {
   let name: String
   let sourceLocation: SourceLocation
 
