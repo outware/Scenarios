@@ -1,5 +1,6 @@
 # Xcode
 build/
+Carthage/Checkouts/
 !Carthage/Build/
 xcuserdata/
 *.xccheckout
