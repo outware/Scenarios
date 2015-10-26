@@ -23,7 +23,7 @@ public final class Scenario: Preparable {
   }
 
   deinit {
-    let description = stepDescriptions.map { $0.1 }.joinWithSeparator(", ")
+    let description = stepDescriptions.map { $0.description }.joinWithSeparator(", ")
     let unresolvedSteps = stepDescriptions.map { metadata in
       { (metadata, StepDefinition.lookup(metadata.description, forStepInFile: metadata.file, atLine: metadata.line)) }
     }
