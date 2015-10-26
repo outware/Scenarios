@@ -11,10 +11,14 @@
 /// fails if any of the steps are undefined.
 public final class Scenario: Preparable {
   private let name: String
+  private let file: String
+  private let line: UInt
   private var stepDescriptions: [StepMetadata] = []
 
-  public init(_ name: String) {
+  public init(_ name: String, file: String = __FILE__, line: UInt = __LINE__) {
     self.name = name
+    self.file = file
+    self.line = line
   }
 
   public func Given(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Prepared {
@@ -28,7 +32,7 @@ public final class Scenario: Preparable {
       { (metadata, StepDefinition.lookup(metadata.description, forStepInFile: metadata.file, atLine: metadata.line)) }
     }
 
-    it(description) {
+    it(description, file: file, line: line) {
       let result: ResolvedSteps = unresolvedSteps.reduce(.MatchedActions([])) { result, lookup in
         switch result {
         case .MissingStep:
