@@ -9,31 +9,30 @@
 /// After the last step is defined, the scenario is compiled into a Quick example
 /// block by looking up the step definitions based on the step names. The test
 /// fails if any of the steps are undefined.
-public final class Scenario {
+public final class Scenario: Preparable {
   private let name: String
+  private let file: String
+  private let line: UInt
   private var stepDescriptions: [StepMetadata] = []
 
-  public init(_ name: String) {
+  public init(_ name: String, file: String = __FILE__, line: UInt = __LINE__) {
     self.name = name
+    self.file = file
+    self.line = line
   }
 
-  public func Given(stepDescription: String, inFile filePath: String = __FILE__, atLine lineNumber: UInt = __LINE__) -> Self {
-    stepDescriptions.append(description: stepDescription, filePath: filePath, lineNumber: lineNumber)
-    return self
-  }
-
-  public func Then(stepDescription: String, inFile filePath: String = __FILE__, atLine lineNumber: UInt = __LINE__) -> Self {
-    stepDescriptions.append(description: stepDescription, filePath: filePath, lineNumber: lineNumber)
-    return self
+  public func Given(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Prepared {
+    addStep(description, file: file, line: line)
+    return Prepared(self)
   }
 
   deinit {
-    let description = stepDescriptions.map { $0.1 }.joinWithSeparator(", ")
+    let description = stepDescriptions.map { $0.description }.joinWithSeparator(", ")
     let unresolvedSteps = stepDescriptions.map { metadata in
-      { (metadata, StepDefinition.lookup(metadata.description, forStepInFile: metadata.filePath, atLine: metadata.lineNumber)) }
+      { (metadata, StepDefinition.lookup(metadata.description, forStepInFile: metadata.file, atLine: metadata.line)) }
     }
 
-    it(description) {
+    it(description, file: file, line: line) {
       let result: ResolvedSteps = unresolvedSteps.reduce(.MatchedActions([])) { result, lookup in
         switch result {
         case .MissingStep:
@@ -51,7 +50,7 @@ public final class Scenario {
 
       switch result {
       case let .MissingStep(metadata):
-        fail("couldn't match step description: '\(metadata.description)'", file: metadata.filePath, line: metadata.lineNumber)
+        fail("couldn't match step description: '\(metadata.description)'", file: metadata.file, line: metadata.line)
       case let .MatchedActions(actions):
         for action in actions {
           action()
@@ -61,7 +60,13 @@ public final class Scenario {
   }
 }
 
-private typealias StepMetadata = (description: String, filePath: String, lineNumber: UInt)
+extension Scenario: ScenarioBuilder {
+  func addStep(description: String, file: String, line: UInt) {
+    stepDescriptions.append(description: description, file: file, line: line)
+  }
+}
+
+private typealias StepMetadata = (description: String, file: String, line: UInt)
 
 private enum ResolvedSteps {
   case MissingStep(StepMetadata)

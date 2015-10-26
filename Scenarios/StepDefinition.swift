@@ -10,6 +10,10 @@ public class StepDefinition: QuickSpec {
     registerStepWithDescription(description, definition: definition)
   }
 
+  public func When(description: String, definition: () -> ()) {
+    registerStepWithDescription(description, definition: definition)
+  }
+
   public func Then(description: String, definition: () -> ()) {
     registerStepWithDescription(description, definition: definition)
   }

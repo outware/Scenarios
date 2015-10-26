@@ -14,8 +14,10 @@
 		CE0508AC1BDDE78B00B21C8C /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0508A81BDDE78B00B21C8C /* Scenario.swift */; settings = {ASSET_TAGS = (); }; };
 		CE0508AD1BDDE78B00B21C8C /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0508A91BDDE78B00B21C8C /* Step.swift */; settings = {ASSET_TAGS = (); }; };
 		CE0508AE1BDDE78B00B21C8C /* StepDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0508AA1BDDE78B00B21C8C /* StepDefinition.swift */; settings = {ASSET_TAGS = (); }; };
+		CE6BE1631BDEC984009DC35F /* ScenarioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */; settings = {ASSET_TAGS = (); }; };
 		CEB298571BDDF6A100ACA986 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0873D91BDDEDB000A0E6A3 /* Quick.framework */; };
 		CEB298581BDDF6A300ACA986 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0508BC1BDDECCB00B21C8C /* Nimble.framework */; };
+		CEB2985C1BDE030B00ACA986 /* ScenarioDescriptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		CE0508AA1BDDE78B00B21C8C /* StepDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepDefinition.swift; sourceTree = "<group>"; };
 		CE0508BC1BDDECCB00B21C8C /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		CE0873D91BDDEDB000A0E6A3 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioBuilder.swift; sourceTree = "<group>"; };
+		CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioDescriptors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 				CE0508901BDDE75100B21C8C /* Scenarios.h */,
 				CE0508A71BDDE78B00B21C8C /* Feature.swift */,
 				CE0508A81BDDE78B00B21C8C /* Scenario.swift */,
+				CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */,
+				CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */,
 				CE0508A91BDDE78B00B21C8C /* Step.swift */,
 				CE0508AA1BDDE78B00B21C8C /* StepDefinition.swift */,
 				CE0508921BDDE75100B21C8C /* Info.plist */,
@@ -223,9 +229,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0508AE1BDDE78B00B21C8C /* StepDefinition.swift in Sources */,
+				CE6BE1631BDEC984009DC35F /* ScenarioBuilder.swift in Sources */,
 				CE0508AB1BDDE78B00B21C8C /* Feature.swift in Sources */,
 				CE0508AC1BDDE78B00B21C8C /* Scenario.swift in Sources */,
 				CE0508AD1BDDE78B00B21C8C /* Step.swift in Sources */,
+				CEB2985C1BDE030B00ACA986 /* ScenarioDescriptors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
