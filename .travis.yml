@@ -1,5 +1,10 @@
 language: objective-c
 osx_image: xcode7.1
-xcode_workspace: Scenarios.xcworkspace
-xcode_scheme: Scenarios-iOS
-xcode_sdk: iphonesimulator9.1
+install: gem install xcpretty
+script:
+  >
+    xcodebuild test \
+      -workspace Scenarios.xcworkspace \
+      -scheme Scenarios-iOS \
+      -destination "platform=iOS Simulator,name=iPhone 6s" \
+    | xcpretty -c
