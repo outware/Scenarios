@@ -3,6 +3,7 @@ build/
 Carthage/
 xcuserdata/
 *.xccheckout
+*.xcscmblueprint
 *.gcno
 *.gcda
 
