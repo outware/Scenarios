@@ -50,7 +50,7 @@ public final class Scenario: Preparable {
 
       switch result {
       case let .MissingStep(metadata):
-        fail("couldn't match step description: '\(metadata.description)'", file: metadata.file, line: metadata.line)
+        XCTFail("couldn't match step description: '\(metadata.description)'", file: metadata.file, line: metadata.line)
       case let .MatchedActions(actions):
         for action in actions {
           action()
@@ -74,4 +74,4 @@ private enum ResolvedSteps {
 }
 
 import Quick
-import Nimble
+import XCTest

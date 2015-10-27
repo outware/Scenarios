@@ -14,10 +14,12 @@
 		CE0508AC1BDDE78B00B21C8C /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0508A81BDDE78B00B21C8C /* Scenario.swift */; settings = {ASSET_TAGS = (); }; };
 		CE0508AD1BDDE78B00B21C8C /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0508A91BDDE78B00B21C8C /* Step.swift */; settings = {ASSET_TAGS = (); }; };
 		CE0508AE1BDDE78B00B21C8C /* StepDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0508AA1BDDE78B00B21C8C /* StepDefinition.swift */; settings = {ASSET_TAGS = (); }; };
+		CE458B301BDEFABC0058D5A2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0508BC1BDDECCB00B21C8C /* Nimble.framework */; };
 		CE6BE1631BDEC984009DC35F /* ScenarioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */; settings = {ASSET_TAGS = (); }; };
 		CEB298571BDDF6A100ACA986 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0873D91BDDEDB000A0E6A3 /* Quick.framework */; };
-		CEB298581BDDF6A300ACA986 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0508BC1BDDECCB00B21C8C /* Nimble.framework */; };
 		CEB2985C1BDE030B00ACA986 /* ScenarioDescriptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */; settings = {ASSET_TAGS = (); }; };
+		CEB7601E1BDEFBD20097EA41 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE0508BC1BDDECCB00B21C8C /* Nimble.framework */; };
+		CEB760211BDEFC120097EA41 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = CE0873D91BDDEDB000A0E6A3 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,21 @@
 			remoteInfo = Scenarios;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CEB7601D1BDEFBC60097EA41 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				CEB760211BDEFC120097EA41 /* Quick.framework in Copy Frameworks */,
+				CEB7601E1BDEFBD20097EA41 /* Nimble.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CE05088D1BDDE75100B21C8C /* Scenarios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Scenarios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,7 +70,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB298571BDDF6A100ACA986 /* Quick.framework in Frameworks */,
-				CEB298581BDDF6A300ACA986 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0508981BDDE75100B21C8C /* Scenarios.framework in Frameworks */,
+				CE458B301BDEFABC0058D5A2 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +176,7 @@
 				CE0508931BDDE75100B21C8C /* Sources */,
 				CE0508941BDDE75100B21C8C /* Frameworks */,
 				CE0508951BDDE75100B21C8C /* Resources */,
+				CEB7601D1BDEFBC60097EA41 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -399,6 +417,10 @@
 		CE0508A51BDDE75100B21C8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ScenariosTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.outware.$(PROJECT_NAME)Tests";
@@ -409,6 +431,10 @@
 		CE0508A61BDDE75100B21C8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ScenariosTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.outware.$(PROJECT_NAME)Tests";
