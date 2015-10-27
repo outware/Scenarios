@@ -13,12 +13,14 @@ public final class Scenario: Preparable {
   private let name: String
   private let file: String
   private let line: UInt
+  private let commitFunc: CommitFunc
   private var stepDescriptions: [StepMetadata] = []
 
-  public init(_ name: String, file: String = __FILE__, line: UInt = __LINE__) {
+  public init(_ name: String, file: String = __FILE__, line: UInt = __LINE__, commit: CommitFunc = quick_it) {
     self.name = name
     self.file = file
     self.line = line
+    self.commitFunc = commit
   }
 
   public func Given(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Prepared {
@@ -27,12 +29,11 @@ public final class Scenario: Preparable {
   }
 
   deinit {
-    let description = stepDescriptions.map { $0.description }.joinWithSeparator(", ")
     let unresolvedSteps = stepDescriptions.map { metadata in
       { (metadata, StepDefinition.lookup(metadata.description, forStepInFile: metadata.file, atLine: metadata.line)) }
     }
 
-    it(description, file: file, line: line) {
+    commit(name, file: file, line: line) {
       let result: ResolvedSteps = unresolvedSteps.reduce(.MatchedActions([])) { result, lookup in
         switch result {
         case .MissingStep:
@@ -58,6 +59,16 @@ public final class Scenario: Preparable {
       }
     }
   }
+
+  private func commit(description: String, file: String, line: UInt, closure: () -> ()) {
+    commitFunc(description, file, line, closure)
+  }
+}
+
+public typealias CommitFunc = (String, String, UInt, () -> ()) -> ()
+
+private let quick_it: CommitFunc = { description, file, line, closure in
+  it(description, file: file, line: line, closure: closure)
 }
 
 extension Scenario: ScenarioBuilder {
