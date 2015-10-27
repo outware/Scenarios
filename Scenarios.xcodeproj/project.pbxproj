@@ -41,8 +41,8 @@
 		CE0508A81BDDE78B00B21C8C /* Scenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		CE0508A91BDDE78B00B21C8C /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		CE0508AA1BDDE78B00B21C8C /* StepDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepDefinition.swift; sourceTree = "<group>"; };
-		CE3AD7391BDF01A000A714D8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE3AD73B1BDF01AC00A714D8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE3AD7391BDF01A000A714D8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE3AD73B1BDF01AC00A714D8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioBuilder.swift; sourceTree = "<group>"; };
 		CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioDescriptors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,7 +97,7 @@
 				CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */,
 				CE0508A91BDDE78B00B21C8C /* Step.swift */,
 				CE0508AA1BDDE78B00B21C8C /* StepDefinition.swift */,
-				CE0508921BDDE75100B21C8C /* Info.plist */,
+				CE337CC01BDF1C2300BE8BFC /* Supporting Files */,
 			);
 			path = Scenarios;
 			sourceTree = "<group>";
@@ -106,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				CE05089C1BDDE75100B21C8C /* ScenariosTests.swift */,
-				CE05089E1BDDE75100B21C8C /* Info.plist */,
+				CE337CBF1BDF1C1700BE8BFC /* Supporting Files */,
 			);
 			path = ScenariosTests;
 			sourceTree = "<group>";
@@ -118,6 +118,22 @@
 				CE3AD73B1BDF01AC00A714D8 /* Nimble.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE337CBF1BDF1C1700BE8BFC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE05089E1BDDE75100B21C8C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE337CC01BDF1C2300BE8BFC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE0508921BDDE75100B21C8C /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
