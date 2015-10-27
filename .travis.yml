@@ -7,4 +7,6 @@ script:
       -workspace Scenarios.xcworkspace \
       -scheme Scenarios-iOS \
       -destination "platform=iOS Simulator,name=iPhone 6s" \
-    | xcpretty -c
+    | xcpretty -c \
+    ; exit ${PIPESTATUS[0]}
+
