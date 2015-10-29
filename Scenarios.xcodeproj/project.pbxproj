@@ -17,6 +17,7 @@
 		CE3AD73A1BDF01A000A714D8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3AD7391BDF01A000A714D8 /* Quick.framework */; };
 		CE3AD73C1BDF01AC00A714D8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3AD73B1BDF01AC00A714D8 /* Nimble.framework */; };
 		CE6BE1631BDEC984009DC35F /* ScenarioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */; };
+		CE6CDF881BE2DEBF00AE6393 /* Regex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6CDF871BE2DEBE00AE6393 /* Regex.framework */; };
 		CEB2985C1BDE030B00ACA986 /* ScenarioDescriptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		CE3AD7391BDF01A000A714D8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3AD73B1BDF01AC00A714D8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioBuilder.swift; sourceTree = "<group>"; };
+		CE6CDF871BE2DEBE00AE6393 /* Regex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioDescriptors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE3AD73A1BDF01A000A714D8 /* Quick.framework in Frameworks */,
+				CE6CDF881BE2DEBF00AE6393 /* Regex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +117,7 @@
 		CE0508B51BDDE94A00B21C8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE6CDF871BE2DEBE00AE6393 /* Regex.framework */,
 				CE3AD7391BDF01A000A714D8 /* Quick.framework */,
 				CE3AD73B1BDF01AC00A714D8 /* Nimble.framework */,
 			);
