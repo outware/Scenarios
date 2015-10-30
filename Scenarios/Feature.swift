@@ -8,6 +8,12 @@ public class Feature: QuickSpec {
     continueAfterFailure = false
   }
 
+  public override func tearDown() {
+    super.tearDown()
+    guard self.dynamicType != Feature.self else { return }
+    XCUIApplication().terminate()
+  }
+
   public func scenarios() {}
 
   override public func spec() {
