@@ -19,6 +19,8 @@
 		CE6BE1631BDEC984009DC35F /* ScenarioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */; };
 		CE6CDF881BE2DEBF00AE6393 /* Regex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6CDF871BE2DEBE00AE6393 /* Regex.framework */; };
 		CEB2985C1BDE030B00ACA986 /* ScenarioDescriptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */; };
+		CED2450B1BE2E357009E4F3B /* StepArgumentsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED245091BE2E329009E4F3B /* StepArgumentsFeature.swift */; };
+		CED2450D1BE2E658009E4F3B /* StepArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2450C1BE2E658009E4F3B /* StepArguments.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +47,10 @@
 		CE3AD7391BDF01A000A714D8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3AD73B1BDF01AC00A714D8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioBuilder.swift; sourceTree = "<group>"; };
-		CE6CDF871BE2DEBE00AE6393 /* Regex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE6CDF871BE2DEBE00AE6393 /* Regex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioDescriptors.swift; sourceTree = "<group>"; };
+		CED245091BE2E329009E4F3B /* StepArgumentsFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepArgumentsFeature.swift; sourceTree = "<group>"; };
+		CED2450C1BE2E658009E4F3B /* StepArguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepArguments.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 				CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */,
 				CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */,
 				CE0508A91BDDE78B00B21C8C /* Step.swift */,
+				CED2450C1BE2E658009E4F3B /* StepArguments.swift */,
 				CE0508AA1BDDE78B00B21C8C /* StepDefinition.swift */,
 				CE337CC01BDF1C2300BE8BFC /* Supporting Files */,
 			);
@@ -109,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				CE337CBD1BDF1C1000BE8BFC /* ScenarioSpec.swift */,
+				CED245091BE2E329009E4F3B /* StepArgumentsFeature.swift */,
 				CE337CBF1BDF1C1700BE8BFC /* Supporting Files */,
 			);
 			path = ScenariosTests;
@@ -254,6 +260,7 @@
 				CE0508AC1BDDE78B00B21C8C /* Scenario.swift in Sources */,
 				CE0508AD1BDDE78B00B21C8C /* Step.swift in Sources */,
 				CEB2985C1BDE030B00ACA986 /* ScenarioDescriptors.swift in Sources */,
+				CED2450D1BE2E658009E4F3B /* StepArguments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE337CC11BDF1D1500BE8BFC /* ScenarioSpec.swift in Sources */,
+				CED2450B1BE2E357009E4F3B /* StepArgumentsFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
