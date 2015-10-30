@@ -5,6 +5,7 @@
 public class Feature: QuickSpec {
   override public func setUp() {
     super.setUp()
+    guard isUITesting else { return }
     continueAfterFailure = false
   }
 
