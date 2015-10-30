@@ -11,6 +11,7 @@ public class Feature: QuickSpec {
   public override func tearDown() {
     super.tearDown()
     guard self.dynamicType != Feature.self else { return }
+    guard isUITesting else { return }
     XCUIApplication().terminate()
   }
 
