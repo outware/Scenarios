@@ -81,7 +81,7 @@ private typealias StepMetadata = (description: String, file: String, line: UInt)
 
 private enum ResolvedSteps {
   case MissingStep(StepMetadata)
-  case MatchedActions([() -> ()])
+  case MatchedActions([StepActionFunc])
 }
 
 import Quick

@@ -1,36 +1,42 @@
 //  Copyright © 2015 Outware Mobile. All rights reserved.
 
-public typealias StepDefinitionFunc = () -> ()
+public typealias StepDefinitionFunc = StepArguments -> ()
+internal typealias StepActionFunc = () -> ()
 
 public class StepDefinition: QuickSpec {
 
   // MARK: Step definition API
 
-  public func Given(description: String, definition: () -> ()) {
-    registerStepWithDescription(description, definition: definition)
+  public func Given(pattern: String, definition: StepDefinitionFunc) {
+    registerStepWithPattern(pattern, definition: definition)
   }
 
-  public func When(description: String, definition: () -> ()) {
-    registerStepWithDescription(description, definition: definition)
+  public func When(pattern: String, definition: StepDefinitionFunc) {
+    registerStepWithPattern(pattern, definition: definition)
   }
 
-  public func Then(description: String, definition: () -> ()) {
-    registerStepWithDescription(description, definition: definition)
+  public func Then(pattern: String, definition: StepDefinitionFunc) {
+    registerStepWithPattern(pattern, definition: definition)
   }
 
   // MARK: Matching step definitions
 
-  internal static func lookup(description: String, forStepInFile filePath: String, atLine lineNumber: UInt) -> () -> StepDefinitionFunc? {
+  internal static func lookup(description: String, forStepInFile filePath: String, atLine lineNumber: UInt) -> () -> StepActionFunc? {
     let step = Step(name: description, inFile: filePath, atLine: lineNumber)
 
     return {
-      guard let definition = stepDefinitions[description] else {
-        return nil
-      }
+      guard let (args, definition) = stepDefinitions.lazy
+        .flatMap({ pattern, function in
+          pattern.match(description).map {
+            (StepArguments($0), function)
+          }
+        })
+        .first
+      else { return nil }
 
       return {
         executingStep = step
-        definition()
+        definition(args)
         executingStep = nil
       }
     }
@@ -51,12 +57,19 @@ public class StepDefinition: QuickSpec {
 
   // MARK: Registering step definitions
 
-  private func registerStepWithDescription(description: String, definition: () -> ()) {
-    self.dynamicType.stepDefinitions[description] = definition
+  private func registerStepWithPattern(pattern: String, definition: StepDefinitionFunc) {
+    self.dynamicType.stepDefinitions.append(regexForPattern(pattern), definition)
   }
 
-  private static var stepDefinitions: [String: () -> ()] = [:]
+  private func regexForPattern(var pattern: String) -> Regex {
+    if !pattern.hasPrefix("^") { pattern.insert("^", atIndex: pattern.startIndex) }
+    if !pattern.hasSuffix("$") { pattern.insert("$", atIndex: pattern.endIndex) }
+    return Regex(pattern)
+  }
+
+  private static var stepDefinitions: [(Regex, StepDefinitionFunc)] = []
 
 }
 
 import Quick
+import Regex
