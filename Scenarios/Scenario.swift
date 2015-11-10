@@ -9,7 +9,7 @@
 /// After the last step is defined, the scenario is compiled into a Quick example
 /// block by looking up the step definitions based on the step names. The test
 /// fails if any of the steps are undefined.
-public final class Scenario: Preparable {
+public final class Scenario: Preparable, Actionable {
   private let name: String
   private let file: String
   private let line: UInt
@@ -26,6 +26,11 @@ public final class Scenario: Preparable {
   public func Given(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Prepared {
     addStep(description, file: file, line: line)
     return Prepared(self)
+  }
+
+  public func When(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Actioned {
+    addStep(description, file: file, line: line)
+    return Actioned(self)
   }
 
   deinit {

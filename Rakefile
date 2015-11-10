@@ -6,8 +6,12 @@ task :clean do
   sh "xcodebuild clean -workspace #{WORKSPACE} -scheme #{SCHEME} -destination '#{DESTINATION}' | xcpretty -c; exit ${PIPESTATUS[0]}"
 end
 
-task :test do
+task :spec do
   sh "xcodebuild test -workspace #{WORKSPACE} -scheme #{SCHEME} -destination '#{DESTINATION}' | xcpretty -c; exit ${PIPESTATUS[0]}"
 end
 
-task :default => :test
+task :demo do
+  sh "xcodebuild test -workspace #{WORKSPACE} -scheme Demo-iOS -destination '#{DESTINATION}' | xcpretty -c; exit ${PIPESTATUS[0]}"
+end
+
+task :default => [:spec, :demo]
