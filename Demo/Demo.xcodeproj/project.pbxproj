@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE26642C1BF2A3A3002974B8 /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26642B1BF2A3A3002974B8 /* GreetingViewController.swift */; };
 		CE7A72491BF2964600CFD450 /* AppSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A72481BF2964600CFD450 /* AppSteps.swift */; };
 		CE7A724B1BF29ADF00CFD450 /* GreetingSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A724A1BF29ADF00CFD450 /* GreetingSteps.swift */; };
 		CE81C84F1BF28C7000DD6AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81C84E1BF28C7000DD6AF9 /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE26642B1BF2A3A3002974B8 /* GreetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		CE7A72481BF2964600CFD450 /* AppSteps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSteps.swift; sourceTree = "<group>"; };
 		CE7A724A1BF29ADF00CFD450 /* GreetingSteps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingSteps.swift; sourceTree = "<group>"; };
 		CE81C84B1BF28C7000DD6AF9 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				CE81C84E1BF28C7000DD6AF9 /* AppDelegate.swift */,
+				CE26642B1BF2A3A3002974B8 /* GreetingViewController.swift */,
 				CE81C8501BF28C7000DD6AF9 /* ViewController.swift */,
 				CE81C8551BF28C7000DD6AF9 /* Assets.xcassets */,
 				CE81C8571BF28C7000DD6AF9 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE81C8511BF28C7000DD6AF9 /* ViewController.swift in Sources */,
+				CE26642C1BF2A3A3002974B8 /* GreetingViewController.swift in Sources */,
 				CE81C84F1BF28C7000DD6AF9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,11 @@ final class GreetingFeature: Feature {
       .When("the app has launched")
       .Then("the greeting 'Hello, world!' should be on screen")
 
+    Scenario("Personalised greeting")
+      .Given("the app has launched")
+      .When("I enter 'Friend' as my name")
+      .Then("I should see the greeting 'Hello, Friend!' on screen")
+
   }
 }
 
