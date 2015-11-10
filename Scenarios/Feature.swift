@@ -5,7 +5,15 @@
 public class Feature: QuickSpec {
   override public func setUp() {
     super.setUp()
+    guard isUITesting else { return }
     continueAfterFailure = false
+  }
+
+  public override func tearDown() {
+    super.tearDown()
+    guard self.dynamicType != Feature.self else { return }
+    guard isUITesting else { return }
+    XCUIApplication().terminate()
   }
 
   public func scenarios() {}
