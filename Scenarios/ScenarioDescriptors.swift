@@ -10,11 +10,11 @@ public protocol Preparable {
   func Given(description: String, file: String, line: UInt) -> Prepared
 }
 
-public protocol Actionable: Extendable {
+public protocol Actionable {
   func When(description: String, file: String, line: UInt) -> Actioned
 }
 
-public protocol Assertable: Extendable {
+public protocol Assertable {
   func Then(description: String, file: String, line: UInt) -> Asserted
 }
 
