@@ -8,7 +8,7 @@ final class GreetingFeature: Feature {
     // I want to greet them warmly when returning to the app
 
     Scenario("Greeting on launch")
-      .Given("the app has launched")
+      .When("the app has launched")
       .Then("the greeting 'Hello, world!' should be on screen")
 
   }

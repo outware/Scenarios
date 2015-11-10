@@ -3,7 +3,7 @@
 final class AppSteps: StepDefinition {
   override func steps() {
 
-    Given("^the app has launched$") { args in
+    When("^the app has launched$") { _ in
       XCUIApplication().launch()
     }
 
