@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE7A72491BF2964600CFD450 /* AppSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A72481BF2964600CFD450 /* AppSteps.swift */; };
+		CE7A724B1BF29ADF00CFD450 /* GreetingSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A724A1BF29ADF00CFD450 /* GreetingSteps.swift */; };
 		CE81C84F1BF28C7000DD6AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81C84E1BF28C7000DD6AF9 /* AppDelegate.swift */; };
 		CE81C8511BF28C7000DD6AF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81C8501BF28C7000DD6AF9 /* ViewController.swift */; };
 		CE81C8541BF28C7000DD6AF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE81C8521BF28C7000DD6AF9 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		CE7A72481BF2964600CFD450 /* AppSteps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSteps.swift; sourceTree = "<group>"; };
+		CE7A724A1BF29ADF00CFD450 /* GreetingSteps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingSteps.swift; sourceTree = "<group>"; };
 		CE81C84B1BF28C7000DD6AF9 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE81C84E1BF28C7000DD6AF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE81C8501BF28C7000DD6AF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				CE7A72481BF2964600CFD450 /* AppSteps.swift */,
+				CE7A724A1BF29ADF00CFD450 /* GreetingSteps.swift */,
 			);
 			path = Steps;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE81C8731BF28FBC00DD6AF9 /* GreetingFeature.swift in Sources */,
+				CE7A724B1BF29ADF00CFD450 /* GreetingSteps.swift in Sources */,
 				CE7A72491BF2964600CFD450 /* AppSteps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
