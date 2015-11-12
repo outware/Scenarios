@@ -44,7 +44,7 @@ You can install Scenarios as a dynamic framework via [Carthage][]. Just add this
 github "outware/Scenarios"
 ```
 
-Then run `carthage update`, and integrate `Scenarios.framework` and `Quick.framework` into your test bundle. You can find a handy guide for this [in the Carthage README][Integration Guide].
+Then run `carthage update`, and integrate `Scenarios.framework`, `Regex.framework` and `Quick.framework` into your test bundle. You can find a handy guide for this [in the Carthage README][Integration Guide].
 
 [Carthage]: https://github.com/Carthage/Carthage
 [Integration Guide]: https://github.com/Carthage/Carthage#adding-frameworks-to-unit-tests-or-a-framework
