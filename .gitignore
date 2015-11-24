@@ -1,6 +1,5 @@
 # Xcode
 build/
-Carthage/Build/
 xcuserdata/
 *.xccheckout
 *.xcscmblueprint

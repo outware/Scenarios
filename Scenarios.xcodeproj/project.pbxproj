@@ -14,10 +14,14 @@
 		CE0508AD1BDDE78B00B21C8C /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0508A91BDDE78B00B21C8C /* Step.swift */; };
 		CE0508AE1BDDE78B00B21C8C /* StepDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0508AA1BDDE78B00B21C8C /* StepDefinition.swift */; };
 		CE337CC11BDF1D1500BE8BFC /* ScenarioSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE337CBD1BDF1C1000BE8BFC /* ScenarioSpec.swift */; };
-		CE3AD73A1BDF01A000A714D8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3AD7391BDF01A000A714D8 /* Quick.framework */; };
-		CE3AD73C1BDF01AC00A714D8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3AD73B1BDF01AC00A714D8 /* Nimble.framework */; };
 		CE6BE1631BDEC984009DC35F /* ScenarioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */; };
-		CE6CDF881BE2DEBF00AE6393 /* Regex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6CDF871BE2DEBE00AE6393 /* Regex.framework */; };
+		CE8C77351C040B2E00C2EA7E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8C77321C040B2E00C2EA7E /* Quick.framework */; };
+		CE8C77361C040B2E00C2EA7E /* Regex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8C77331C040B2E00C2EA7E /* Regex.framework */; };
+		CE8C77371C040B5700C2EA7E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8C77311C040B2E00C2EA7E /* Nimble.framework */; };
+		CE8C77381C040B5700C2EA7E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8C77321C040B2E00C2EA7E /* Quick.framework */; };
+		CE8C773A1C040B7700C2EA7E /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE8C77311C040B2E00C2EA7E /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE8C773B1C040B7700C2EA7E /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE8C77321C040B2E00C2EA7E /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE8C773C1C040B7700C2EA7E /* Regex.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE8C77331C040B2E00C2EA7E /* Regex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEB2985C1BDE030B00ACA986 /* ScenarioDescriptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */; };
 		CED2450B1BE2E357009E4F3B /* StepArgumentsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED245091BE2E329009E4F3B /* StepArgumentsFeature.swift */; };
 		CED2450D1BE2E658009E4F3B /* StepArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2450C1BE2E658009E4F3B /* StepArguments.swift */; };
@@ -33,6 +37,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CE8C77391C040B6200C2EA7E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CE8C773A1C040B7700C2EA7E /* Nimble.framework in Embed Frameworks */,
+				CE8C773B1C040B7700C2EA7E /* Quick.framework in Embed Frameworks */,
+				CE8C773C1C040B7700C2EA7E /* Regex.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		CE05088D1BDDE75100B21C8C /* Scenarios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Scenarios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0508901BDDE75100B21C8C /* Scenarios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scenarios.h; sourceTree = "<group>"; };
@@ -44,10 +64,10 @@
 		CE0508A91BDDE78B00B21C8C /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		CE0508AA1BDDE78B00B21C8C /* StepDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepDefinition.swift; sourceTree = "<group>"; };
 		CE337CBD1BDF1C1000BE8BFC /* ScenarioSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioSpec.swift; sourceTree = "<group>"; };
-		CE3AD7391BDF01A000A714D8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE3AD73B1BDF01AC00A714D8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6BE1621BDEC984009DC35F /* ScenarioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioBuilder.swift; sourceTree = "<group>"; };
-		CE6CDF871BE2DEBE00AE6393 /* Regex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8C77311C040B2E00C2EA7E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		CE8C77321C040B2E00C2EA7E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		CE8C77331C040B2E00C2EA7E /* Regex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Regex.framework; path = Carthage/Build/iOS/Regex.framework; sourceTree = "<group>"; };
 		CEB2985B1BDE030B00ACA986 /* ScenarioDescriptors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioDescriptors.swift; sourceTree = "<group>"; };
 		CED245091BE2E329009E4F3B /* StepArgumentsFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepArgumentsFeature.swift; sourceTree = "<group>"; };
 		CED2450C1BE2E658009E4F3B /* StepArguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepArguments.swift; sourceTree = "<group>"; };
@@ -58,8 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE3AD73A1BDF01A000A714D8 /* Quick.framework in Frameworks */,
-				CE6CDF881BE2DEBF00AE6393 /* Regex.framework in Frameworks */,
+				CE8C77351C040B2E00C2EA7E /* Quick.framework in Frameworks */,
+				CE8C77361C040B2E00C2EA7E /* Regex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +88,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0508981BDDE75100B21C8C /* Scenarios.framework in Frameworks */,
-				CE3AD73C1BDF01AC00A714D8 /* Nimble.framework in Frameworks */,
+				CE8C77371C040B5700C2EA7E /* Nimble.framework in Frameworks */,
+				CE8C77381C040B5700C2EA7E /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,9 +144,9 @@
 		CE0508B51BDDE94A00B21C8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE6CDF871BE2DEBE00AE6393 /* Regex.framework */,
-				CE3AD7391BDF01A000A714D8 /* Quick.framework */,
-				CE3AD73B1BDF01AC00A714D8 /* Nimble.framework */,
+				CE8C77311C040B2E00C2EA7E /* Nimble.framework */,
+				CE8C77321C040B2E00C2EA7E /* Quick.framework */,
+				CE8C77331C040B2E00C2EA7E /* Regex.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -185,6 +206,7 @@
 				CE0508931BDDE75100B21C8C /* Sources */,
 				CE0508941BDDE75100B21C8C /* Frameworks */,
 				CE0508951BDDE75100B21C8C /* Resources */,
+				CE8C77391C040B6200C2EA7E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -385,6 +407,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -409,6 +433,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -425,6 +451,10 @@
 		CE0508A51BDDE75100B21C8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ScenariosTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.outware.$(PROJECT_NAME)Tests";
@@ -435,6 +465,10 @@
 		CE0508A61BDDE75100B21C8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ScenariosTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.outware.$(PROJECT_NAME)Tests";
