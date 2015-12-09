@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
-  s.name     = 'Scenarios'
-  s.version  = '0.2.2'
+  s.name     = File.basename(__FILE__, ".podspec")
+  s.version  = %x(git describe --tags --abbrev=0).chomp.sub(/^v/, '')
+  s.summary  = %x(curl -s https://api.github.com/repos/outware/#{s.name} | ruby -rjson -e 'puts JSON.parse($stdin.read).fetch("description")').chomp
   s.license  = { :type => 'Apache 2.0', :file => 'LICENSE.txt' }
-  s.summary  = 'Human-oriented testing in Swift.'
   s.homepage = 'https://github.com/outware/Scenarios'
   s.authors  = { 'Adam Sharplet' => 'adsharp@me.com' }
 
