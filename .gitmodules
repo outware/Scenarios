@@ -1,3 +1,0 @@
-[submodule "Carthage/Checkouts/Regex"]
-	path = Carthage/Checkouts/Regex
-	url = https://github.com/sharplet/Regex.git
