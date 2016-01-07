@@ -1,2 +1,2 @@
 github "Quick/Quick"
-github "sharplet/Regex"
+github "sharplet/Regex" ~> 0.2

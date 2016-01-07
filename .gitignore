@@ -6,6 +6,9 @@ xcuserdata/
 *.gcno
 *.gcda
 
+# Carthage
+/Cartfile.resolved
+
 # Mac OS X
 .DS_Store
 
