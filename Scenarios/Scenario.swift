@@ -56,7 +56,7 @@ public final class Scenario: Preparable, Actionable {
 
       switch result {
       case let .MissingStep(metadata):
-        XCTFail("couldn't match step description: '\(metadata.description)'", file: metadata.file, line: metadata.line)
+        XCTFail("couldn't match step description: '\(metadata.description)'", line: metadata.line)
       case let .MatchedActions(actions):
         for action in actions {
           action()
