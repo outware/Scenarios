@@ -27,17 +27,17 @@ public final class Prepared: Assertable, Actionable, Extendable {
     self.builder = builder
   }
 
-  public func And(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Self {
+  public func And(description: String, file: String = #file, line: UInt = #line) -> Self {
     builder.addStep(description, file: file, line: line)
     return self
   }
 
-  public func When(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Actioned {
+  public func When(description: String, file: String = #file, line: UInt = #line) -> Actioned {
     builder.addStep(description, file: file, line: line)
     return Actioned(builder)
   }
 
-  public func Then(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Asserted {
+  public func Then(description: String, file: String = #file, line: UInt = #line) -> Asserted {
     builder.addStep(description, file: file, line: line)
     return Asserted(builder)
   }
@@ -50,12 +50,12 @@ public final class Actioned: Assertable, Extendable {
     self.builder = builder
   }
 
-  public func And(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Self {
+  public func And(description: String, file: String = #file, line: UInt = #line) -> Self {
     builder.addStep(description, file: file, line: line)
     return self
   }
 
-  public func Then(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Asserted {
+  public func Then(description: String, file: String = #file, line: UInt = #line) -> Asserted {
     builder.addStep(description, file: file, line: line)
     return Asserted(builder)
   }
@@ -68,7 +68,7 @@ public final class Asserted: Extendable {
     self.builder = builder
   }
 
-  public func And(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Self {
+  public func And(description: String, file: String = #file, line: UInt = #line) -> Self {
     builder.addStep(description, file: file, line: line)
     return self
   }
