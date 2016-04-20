@@ -61,10 +61,11 @@ public class StepDefinition: QuickSpec {
     self.dynamicType.stepDefinitions.append(regexForPattern(pattern), definition)
   }
 
-  private func regexForPattern(var pattern: String) -> Regex {
-    if !pattern.hasPrefix("^") { pattern.insert("^", atIndex: pattern.startIndex) }
-    if !pattern.hasSuffix("$") { pattern.insert("$", atIndex: pattern.endIndex) }
-    return Regex(pattern)
+  private func regexForPattern(pattern: String) -> Regex {
+    var mutablePattern = pattern
+    if !mutablePattern.hasPrefix("^") { mutablePattern.insert("^", atIndex: mutablePattern.startIndex) }
+    if !mutablePattern.hasSuffix("$") { mutablePattern.insert("$", atIndex: mutablePattern.endIndex) }
+    return Regex(mutablePattern)
   }
 
   private static var stepDefinitions: [(Regex, StepDefinitionFunc)] = []
