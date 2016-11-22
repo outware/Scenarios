@@ -1,3 +1,9 @@
+
+desc "Setup Scenarios for development"
+task :setup do
+  system "carthage bootstrap --platform iphoneos"
+end
+
 SCHEME = "Scenarios-iOS"
 DESTINATION = "platform=iOS Simulator,name=iPhone 6s"
 
