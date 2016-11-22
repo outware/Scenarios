@@ -16,19 +16,19 @@ public final class Scenario: Preparable, Actionable {
   private let commitFunc: CommitFunc
   private var stepDescriptions: [StepMetadata] = []
 
-  public init(_ name: String, file: String = __FILE__, line: UInt = __LINE__, commit: CommitFunc = quick_it) {
+  public init(_ name: String, file: String = #file, line: UInt = #line, commit: CommitFunc = quick_it) {
     self.name = name
     self.file = file
     self.line = line
     self.commitFunc = commit
   }
 
-  public func Given(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Prepared {
+  public func Given(description: String, file: String = #file, line: UInt = #line) -> Prepared {
     addStep(description, file: file, line: line)
     return Prepared(self)
   }
 
-  public func When(description: String, file: String = __FILE__, line: UInt = __LINE__) -> Actioned {
+  public func When(description: String, file: String = #file, line: UInt = #line) -> Actioned {
     addStep(description, file: file, line: line)
     return Actioned(self)
   }
