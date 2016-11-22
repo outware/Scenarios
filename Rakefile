@@ -1,12 +1,15 @@
 
+SUPPORTED_PLATFORMS = "iphoneos"
+CARTHAGE_PLATFORMS = "--platform #{SUPPORTED_PLATFORMS}"
+
 desc "Setup Scenarios for development"
 task :setup do
-  system "carthage bootstrap --platform iphoneos"
+  system "carthage bootstrap #{CARTHAGE_PLATFORMS}"
 end
 
 desc "Attempts to build Scenarios and its dependencies"
 task :build do
-  system "carthage build --platform iphoneos --no-skip-current"
+  system "carthage build #{CARTHAGE_PLATFORMS} --no-skip-current"
 end
 
 SCHEME = "Scenarios-iOS"
