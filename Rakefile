@@ -4,6 +4,11 @@ task :setup do
   system "carthage bootstrap --platform iphoneos"
 end
 
+desc "Attempts to build Scenarios and its dependencies"
+task :build do
+  system "carthage build --platform iphoneos --no-skip-current"
+end
+
 SCHEME = "Scenarios-iOS"
 DESTINATION = "platform=iOS Simulator,name=iPhone 6s"
 
