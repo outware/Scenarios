@@ -7,9 +7,23 @@ task :setup do
   system "carthage bootstrap #{CARTHAGE_PLATFORMS}"
 end
 
-desc "Attempts to build Scenarios and its dependencies"
-task :build do
-  system "carthage build #{CARTHAGE_PLATFORMS} --no-skip-current"
+namespace :test do
+
+  desc "Attempts to build Scenarios and its dependencies"
+  task :build do
+    system "carthage build #{CARTHAGE_PLATFORMS} --no-skip-current"
+  end
+
+  desc "Runs the unit tests for Scenarios"
+  task :specs do
+    sh "xcodebuild test -configuration Release -scheme #{SCHEME} -destination '#{DESTINATION}' | xcpretty -c; exit ${PIPESTATUS[0]}"
+  end
+
+  desc "Runs the UI tests / demo for Scenarios"
+  task :demo do
+    sh "xcodebuild test -configuration Release -workspace Demo/Demo.xcworkspace -scheme Demo-iOS -destination '#{DESTINATION}' | xcpretty -c; exit ${PIPESTATUS[0]}"
+  end
+
 end
 
 SCHEME = "Scenarios-iOS"
@@ -19,12 +33,4 @@ task :clean do
   sh "xcodebuild clean -configuration Release -scheme #{SCHEME} -destination '#{DESTINATION}' | xcpretty -c; exit ${PIPESTATUS[0]}"
 end
 
-task :spec do
-  sh "xcodebuild test -configuration Release -scheme #{SCHEME} -destination '#{DESTINATION}' | xcpretty -c; exit ${PIPESTATUS[0]}"
-end
-
-task :demo do
-  sh "xcodebuild test -configuration Release -workspace Demo/Demo.xcworkspace -scheme Demo-iOS -destination '#{DESTINATION}' | xcpretty -c; exit ${PIPESTATUS[0]}"
-end
-
-task :default => [:spec, :demo]
+task :default => ["test:specs", "test:demo"]
