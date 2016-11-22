@@ -29,6 +29,7 @@ end
 SCHEME = "Scenarios-iOS"
 DESTINATION = "platform=iOS Simulator,name=iPhone 6s"
 
+desc "Cleans the Scenarios development workspace"
 task :clean do
   sh "xcodebuild clean -configuration Release -scheme #{SCHEME} -destination '#{DESTINATION}' | xcpretty -c; exit ${PIPESTATUS[0]}"
 end
