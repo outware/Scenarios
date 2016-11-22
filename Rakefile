@@ -2,6 +2,9 @@
 SUPPORTED_PLATFORMS = "iphoneos"
 CARTHAGE_PLATFORMS = "--platform #{SUPPORTED_PLATFORMS}"
 
+SCHEME = "Scenarios-iOS"
+DESTINATION = "platform=iOS Simulator,name=iPhone 6s"
+
 desc "Setup Scenarios for development"
 task :setup do
   system "carthage bootstrap #{CARTHAGE_PLATFORMS}"
@@ -25,9 +28,6 @@ namespace :test do
   end
 
 end
-
-SCHEME = "Scenarios-iOS"
-DESTINATION = "platform=iOS Simulator,name=iPhone 6s"
 
 desc "Cleans the Scenarios development workspace"
 task :clean do
