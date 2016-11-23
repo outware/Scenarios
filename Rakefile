@@ -17,18 +17,14 @@ end
 
 desc "Setup Scenarios for development"
 task :setup do
-  bootstrap = "carthage bootstrap #{CARTHAGE_PLATFORMS}"
-  bootstrap += " #{SWIFT_2_3_TOOLCHAIN}" if canUseSwift2_3?
-  systemExec bootstrap
+  CarthageTask::Bootstrap.execute
 end
 
 namespace :test do
 
   desc "Attempts to build Scenarios and its dependencies"
   task :build do
-    build = "carthage build #{CARTHAGE_PLATFORMS} --no-skip-current"
-    build += " #{SWIFT_2_3_TOOLCHAIN}" if canUseSwift2_3?
-    systemExec build
+    CarthageTask::Build.execute
   end
 
   desc "Runs the unit tests for Scenarios"
@@ -64,6 +60,23 @@ class String
   def isInstalled
     !`which #{self}`.empty?
   end
+end
+
+class CarthageTask
+  private
+  def initialize (command)
+    @command = command
+  end
+
+  public
+  def execute
+    function = @command += " #{CARTHAGE_PLATFORMS}"
+    function += " #{SWIFT_2_3_TOOLCHAIN}" if canUseSwift2_3?
+    systemExec function
+  end
+
+  Bootstrap = CarthageTask.new('carthage bootstrap')
+  Build     = CarthageTask.new('carthage build --no-skip-current')
 end
 
 def canUseSwift2_3?
