@@ -56,12 +56,6 @@ class Array
   end
 end
 
-class String
-  def isInstalled
-    !`which #{self}`.empty?
-  end
-end
-
 class CarthageTask
   private
   def initialize (command)
@@ -80,7 +74,6 @@ class CarthageTask
 end
 
 def canUseSwift2_3?
-  raise "`xcodebuild` is not installed.`" unless "xcodebuild".isInstalled
   `xcodebuild -version | grep 'Xcode 8'`
     .split
     .map { |text| text.to_f }
