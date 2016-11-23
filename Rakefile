@@ -56,13 +56,20 @@ class Array
   end
 end
 
-class CarthageTask
+class Task
   private
   def initialize (command)
     @command = command
   end
 
   public
+  def execute
+    function = @command
+    systemExec function
+  end
+end
+
+class CarthageTask < Task
   def execute
     function = @command += " #{CARTHAGE_PLATFORMS}"
     function += " #{SWIFT_2_3_TOOLCHAIN}" if canUseSwift2_3?
