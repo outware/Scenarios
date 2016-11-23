@@ -5,16 +5,25 @@ CARTHAGE_PLATFORMS = "--platform #{SUPPORTED_PLATFORMS}"
 SCHEME = "Scenarios-iOS"
 DESTINATION = "platform=iOS Simulator,name=iPhone 6s"
 
+def printCommand (command)
+  puts "\n====> #{command}\n"
+end
+
+def systemExec (command)
+  printCommand command
+  system command
+end
+
 desc "Setup Scenarios for development"
 task :setup do
-  system "carthage bootstrap #{CARTHAGE_PLATFORMS}"
+  systemExec "carthage bootstrap #{CARTHAGE_PLATFORMS}"
 end
 
 namespace :test do
 
   desc "Attempts to build Scenarios and its dependencies"
   task :build do
-    system "carthage build #{CARTHAGE_PLATFORMS} --no-skip-current"
+    systemExec "carthage build #{CARTHAGE_PLATFORMS} --no-skip-current"
   end
 
   desc "Runs the unit tests for Scenarios"
