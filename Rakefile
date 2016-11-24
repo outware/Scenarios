@@ -1,7 +1,7 @@
 
 SUPPORTED_PLATFORMS = "iphoneos"
-CARTHAGE_PLATFORMS = "--platform #{SUPPORTED_PLATFORMS}"
-SWIFT_2_3_TOOLCHAIN = "--toolchain com.apple.dt.toolchain.Swift_2_3"
+CARTHAGE_PLATFORMS = {'platform' => "#{SUPPORTED_PLATFORMS}"}
+SWIFT_2_3_TOOLCHAIN = {'toolchain' => 'com.apple.dt.toolchain.Swift_2_3'}
 
 SCHEME = "Scenarios-iOS"
 DESTINATION = "platform=iOS Simulator,name=iPhone 6s"
@@ -54,30 +54,49 @@ class Array
     arrayOfElements.each { |element| return true if self.include? element }
     return false
   end
+
+  def appendUnique (element)
+    self << element unless self.include? element
+  end
 end
 
 class Task
-  private
-  def initialize (command)
-    @command = command
+  def initialize (task, arguments)
+    @task = task
+    @arguments = arguments
   end
 
-  public
   def execute
+    self.executeWith @arguments
+  end
+
+  def executeWith (arguments)
     function = @command
+    function += " #{@task}"
+    arguments.each { |tuple|
+      tuple.each { |arg, param|
+        function += " --#{arg}"
+        function += " #{param}" unless param.empty?
+      }
+    }
     systemExec function
   end
 end
 
 class CarthageTask < Task
-  def execute
-    function = @command += " #{CARTHAGE_PLATFORMS}"
-    function += " #{SWIFT_2_3_TOOLCHAIN}" if canUseSwift2_3?
-    systemExec function
+  def initialize (task, arguments)
+    super(task, arguments)
+    @command = 'carthage'
   end
 
-  Bootstrap = CarthageTask.new('carthage bootstrap')
-  Build     = CarthageTask.new('carthage build --no-skip-current')
+  def execute
+    arguments = @arguments
+    arguments.appendUnique SWIFT_2_3_TOOLCHAIN if canUseSwift2_3?
+    super.executeWith arguments
+  end
+
+  Bootstrap = CarthageTask.new 'bootstrap', [CARTHAGE_PLATFORMS]
+  Build     = CarthageTask.new 'build', [{'no-skip-current' => ''}, CARTHAGE_PLATFORMS]
 end
 
 def canUseSwift2_3?
