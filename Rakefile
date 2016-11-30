@@ -1,3 +1,4 @@
+include Rake::DSL
 
 SUPPORTED_PLATFORMS = "iphoneos"
 CARTHAGE_PLATFORMS = {'platform' => "#{SUPPORTED_PLATFORMS}"}
@@ -5,15 +6,6 @@ SWIFT_2_3_TOOLCHAIN = {'toolchain' => 'com.apple.dt.toolchain.Swift_2_3'}
 
 SCHEME = "Scenarios-iOS"
 DESTINATION = "platform=iOS Simulator,name=iPhone 6s"
-
-def printCommand (command)
-  puts "\n====> #{command}\n"
-end
-
-def systemExec (command)
-  printCommand command
-  system command
-end
 
 desc "Setup Scenarios for development"
 task :setup do
@@ -61,6 +53,8 @@ class Array
 end
 
 class Task
+  @command
+
   def initialize (task, arguments)
     @task = task
     @arguments = arguments
@@ -73,13 +67,17 @@ class Task
   def executeWith (arguments)
     function = @command
     function += " #{@task}"
-    arguments.each { |tuple|
-      tuple.each { |arg, param|
-        function += " --#{arg}"
-        function += " #{param}" unless param.empty?
-      }
+    arguments.each { |element|
+      if element.is_a? Hash
+        element.each { |flag, value|
+          function += " --#{flag}"
+          function += " #{value}" unless value.nil?
+        }
+      else
+        function += " --#{element}"
+      end
     }
-    systemExec function
+    sh function
   end
 end
 
@@ -96,7 +94,7 @@ class CarthageTask < Task
   end
 
   Bootstrap = CarthageTask.new 'bootstrap', [CARTHAGE_PLATFORMS]
-  Build     = CarthageTask.new 'build', [{'no-skip-current' => ''}, CARTHAGE_PLATFORMS]
+  Build     = CarthageTask.new 'build', ['no-skip-current', CARTHAGE_PLATFORMS]
 end
 
 def canUseSwift2_3?
