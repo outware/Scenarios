@@ -10,25 +10,25 @@
 /// block by looking up the step definitions based on the step names. The test
 /// fails if any of the steps are undefined.
 public final class Scenario: Preparable, Actionable {
-  private let name: String
-  private let file: String
-  private let line: UInt
-  private let commitFunc: CommitFunc
-  private var stepDescriptions: [StepMetadata] = []
+  fileprivate let name: String
+  fileprivate let file: String
+  fileprivate let line: UInt
+  fileprivate let commitFunc: CommitFunc
+  fileprivate var stepDescriptions: [StepMetadata] = []
 
-  public init(_ name: String, file: String = #file, line: UInt = #line, commit: CommitFunc = quick_it) {
+  public init(_ name: String, file: String = #file, line: UInt = #line, commit: @escaping CommitFunc = quick_it) {
     self.name = name
     self.file = file
     self.line = line
     self.commitFunc = commit
   }
 
-  public func Given(description: String, file: String = #file, line: UInt = #line) -> Prepared {
+  public func Given(_ description: String, file: String = #file, line: UInt = #line) -> Prepared {
     addStep(description, file: file, line: line)
     return Prepared(self)
   }
 
-  public func When(description: String, file: String = #file, line: UInt = #line) -> Actioned {
+  public func When(_ description: String, file: String = #file, line: UInt = #line) -> Actioned {
     addStep(description, file: file, line: line)
     return Actioned(self)
   }
@@ -39,25 +39,25 @@ public final class Scenario: Preparable, Actionable {
     }
 
     commit(name, file: file, line: line) {
-      let result: ResolvedSteps = unresolvedSteps.reduce(.MatchedActions([])) { result, lookup in
+      let result: ResolvedSteps = unresolvedSteps.reduce(.matchedActions([])) { result, lookup in
         switch result {
-        case .MissingStep:
+        case .missingStep:
           return result
-        case var .MatchedActions(actions):
+        case var .matchedActions(actions):
           let (metadata, query) = lookup()
           if let action = query() {
             actions.append(action)
-            return .MatchedActions(actions)
+            return .matchedActions(actions)
           } else {
-            return .MissingStep(metadata)
+            return .missingStep(metadata)
           }
         }
       }
 
       switch result {
-      case let .MissingStep(metadata):
+      case let .missingStep(metadata):
         XCTFail("couldn't match step description: '\(metadata.description)'", line: metadata.line)
-      case let .MatchedActions(actions):
+      case let .matchedActions(actions):
         for action in actions {
           action()
         }
@@ -65,19 +65,19 @@ public final class Scenario: Preparable, Actionable {
     }
   }
 
-  private func commit(description: String, file: String, line: UInt, closure: () -> ()) {
+  fileprivate func commit(_ description: String, file: String, line: UInt, closure: @escaping () -> ()) {
     commitFunc(description, file, line, closure)
   }
 }
 
-public typealias CommitFunc = (String, String, UInt, () -> ()) -> ()
+public typealias CommitFunc = (String, String, UInt, @escaping () -> ()) -> ()
 
 private let quick_it: CommitFunc = { description, file, line, closure in
   it(description, file: file, line: line, closure: closure)
 }
 
 extension Scenario: ScenarioBuilder {
-  func addStep(description: String, file: String, line: UInt) {
+  func addStep(_ description: String, file: String, line: UInt) {
     stepDescriptions.append(description: description, file: file, line: line)
   }
 }
@@ -85,8 +85,8 @@ extension Scenario: ScenarioBuilder {
 private typealias StepMetadata = (description: String, file: String, line: UInt)
 
 private enum ResolvedSteps {
-  case MissingStep(StepMetadata)
-  case MatchedActions([StepActionFunc])
+  case missingStep(StepMetadata)
+  case matchedActions([StepActionFunc])
 }
 
 import Quick
