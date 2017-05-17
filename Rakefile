@@ -77,7 +77,7 @@ class Task
         function += " --#{element}"
       end
     }
-    sh function
+    system exec function
   end
 end
 
