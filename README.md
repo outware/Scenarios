@@ -34,6 +34,12 @@ When paired with Xcode UI Testing, Scenarios gives you a high-level, user-focuse
 
 Scenarios isn't a UI testing tool. It's a tool for _organising thought_.
 
+## Swift Version
+
+| Swift version | Scenarios version |
+| --- | --- |
+| Swift 2.2 / Swift 2.3 | 0.2.5 |
+
 ## Getting Started
 
 #### Install
