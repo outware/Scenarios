@@ -93,7 +93,7 @@ class CarthageTask < Task
     super.executeWith arguments
   end
 
-  Bootstrap = CarthageTask.new 'bootstrap', [CARTHAGE_PLATFORMS]
+  Bootstrap = CarthageTask.new 'bootstrap', ['no-use-binaries', CARTHAGE_PLATFORMS]
   Build     = CarthageTask.new 'build', ['no-skip-current', CARTHAGE_PLATFORMS]
 end
 
