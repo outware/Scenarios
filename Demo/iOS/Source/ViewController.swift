@@ -4,8 +4,8 @@ class ViewController: UIViewController {
 
   @IBOutlet var nameField: UITextField!
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    switch segue.destinationViewController {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segue.destination {
     case let greetingVC as GreetingViewController:
       greetingVC.subject = nameField.text
     default:
