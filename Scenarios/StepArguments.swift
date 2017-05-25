@@ -16,7 +16,7 @@ public struct StepArguments: Collection {
   }
 
   public func index(after i: Int) -> Int {
-    return i + 1
+    return captures.index(after: i)
   }
 
 }
