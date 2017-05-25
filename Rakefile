@@ -2,7 +2,7 @@ include Rake::DSL
 
 SUPPORTED_PLATFORMS = "iphoneos"
 CARTHAGE_PLATFORMS = {'platform' => "#{SUPPORTED_PLATFORMS}"}
-SWIFT_2_3_TOOLCHAIN = {'toolchain' => 'com.apple.dt.toolchain.Swift_2_3'}
+SWIFT_3_1_TOOLCHAIN = {'toolchain' => 'com.apple.dt.toolchain.Swift_3_1'}
 
 SCHEME = "Scenarios-iOS"
 DESTINATION = "platform=iOS Simulator,name=iPhone 6s"
@@ -89,7 +89,7 @@ class CarthageTask < Task
 
   def execute
     arguments = @arguments
-    arguments.appendUnique SWIFT_2_3_TOOLCHAIN if canUseSwift2_3?
+    arguments.appendUnique SWIFT_3_1_TOOLCHAIN if canUseSwift2_3?
     super.executeWith arguments
   end
 
