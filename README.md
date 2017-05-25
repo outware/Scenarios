@@ -39,6 +39,7 @@ Scenarios isn't a UI testing tool. It's a tool for _organising thought_.
 | Swift version | Scenarios version |
 | --- | --- |
 | Swift 2.2 / Swift 2.3 | 0.2.5 |
+| Swift 3.x | 0.3.0 or later |
 
 ## Getting Started
 
