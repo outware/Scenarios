@@ -1,7 +1,7 @@
 //  Copyright © 2015 Outware Mobile. All rights reserved.
 
-public typealias StepDefinitionFunc = (StepArguments) -> ()
-internal typealias StepActionFunc = () -> ()
+public typealias StepDefinitionFunc = (StepArguments) -> Void
+internal typealias StepActionFunc = () -> Void
 
 open class StepDefinition: QuickSpec {
 

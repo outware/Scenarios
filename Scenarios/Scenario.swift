@@ -66,7 +66,7 @@ public final class Scenario: Preparable, Actionable, ScenarioBuilder {
     }
   }
 
-  private func commit(_ description: String, file: String, line: UInt, closure: @escaping () -> ()) {
+  private func commit(_ description: String, file: String, line: UInt, closure: @escaping () -> Void) {
     commitFunc(description, file, line, closure)
   }
 
@@ -76,7 +76,7 @@ public final class Scenario: Preparable, Actionable, ScenarioBuilder {
 
 }
 
-public typealias CommitFunc = (String, String, UInt, @escaping () -> ()) -> ()
+public typealias CommitFunc = (String, String, UInt, @escaping () -> Void) -> Void
 
 private let quick_it: CommitFunc = { description, file, line, closure in
   it(description, file: file, line: line, closure: closure)
