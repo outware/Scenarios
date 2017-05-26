@@ -5,7 +5,7 @@ public struct StepArguments: Collection {
   public let startIndex: Int = 0
   public var endIndex: Int { return captures.endIndex }
 
-  fileprivate let captures: [String]
+  private let captures: [String]
 
   internal init(_ matchResult: MatchResult) {
     self.captures = matchResult.captures.flatMap { $0 }

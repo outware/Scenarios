@@ -53,16 +53,16 @@ open class StepDefinition: QuickSpec {
 
   // MARK: Currently executing step
 
-  internal fileprivate(set) static var executingStep: Step?
+  internal private(set) static var executingStep: Step?
 
   // MARK: Registering step definitions
 
-  fileprivate func registerStep(withPattern pattern: String, definition: @escaping StepDefinitionFunc) {
+  private func registerStep(withPattern pattern: String, definition: @escaping StepDefinitionFunc) {
     let step: (Regex, StepDefinitionFunc) = (regex(forPattern: pattern), definition)
     type(of: self).stepDefinitions.append(step)
   }
 
-  fileprivate func regex(forPattern pattern: String) -> Regex {
+  private func regex(forPattern pattern: String) -> Regex {
     var pattern: String = pattern
     if !pattern.hasPrefix("^") { pattern.insert("^", at: pattern.startIndex) }
     if !pattern.hasSuffix("$") { pattern.insert("$", at: pattern.endIndex) }
@@ -73,7 +73,7 @@ open class StepDefinition: QuickSpec {
     }
   }
 
-  fileprivate static var stepDefinitions: [(Regex, StepDefinitionFunc)] = []
+  private static var stepDefinitions: [(Regex, StepDefinitionFunc)] = []
 
 }
 
