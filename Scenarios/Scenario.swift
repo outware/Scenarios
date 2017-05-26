@@ -9,13 +9,13 @@
 /// After the last step is defined, the scenario is compiled into a Quick example
 /// block by looking up the step definitions based on the step names. The test
 /// fails if any of the steps are undefined.
-public final class Scenario: Preparable, Actionable {
+public final class Scenario: Preparable, Actionable, ScenarioBuilder {
 
-  fileprivate let name: String
-  fileprivate let file: String
-  fileprivate let line: UInt
-  fileprivate let commitFunc: CommitFunc
-  fileprivate var stepDescriptions: [StepMetadata] = []
+  private let name: String
+  private let file: String
+  private let line: UInt
+  private let commitFunc: CommitFunc
+  private var stepDescriptions: [StepMetadata] = []
 
   public init(_ name: String, file: String = #file, line: UInt = #line, commit: @escaping CommitFunc = quick_it) {
     self.name = name
@@ -66,8 +66,12 @@ public final class Scenario: Preparable, Actionable {
     }
   }
 
-  fileprivate func commit(_ description: String, file: String, line: UInt, closure: @escaping () -> ()) {
+  private func commit(_ description: String, file: String, line: UInt, closure: @escaping () -> ()) {
     commitFunc(description, file, line, closure)
+  }
+
+  internal func addStep(_ description: String, file: String, line: UInt) {
+    stepDescriptions.append(description: description, file: file, line: line)
   }
 
 }
@@ -76,14 +80,6 @@ public typealias CommitFunc = (String, String, UInt, @escaping () -> ()) -> ()
 
 private let quick_it: CommitFunc = { description, file, line, closure in
   it(description, file: file, line: line, closure: closure)
-}
-
-extension Scenario: ScenarioBuilder {
-
-  func addStep(_ description: String, file: String, line: UInt) {
-    stepDescriptions.append(description: description, file: file, line: line)
-  }
-
 }
 
 private typealias StepMetadata = (description: String, file: String, line: UInt)
