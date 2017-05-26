@@ -3,6 +3,7 @@
 /// Subclass `Feature` and override `scenarios()` to define the steps for the
 /// scenarios in your feature.
 open class Feature: QuickSpec {
+
   override open func setUp() {
     super.setUp()
     continueAfterFailure = false
@@ -21,6 +22,7 @@ open class Feature: QuickSpec {
       super.recordFailure(withDescription: description, inFile: filePath, atLine: lineNumber, expected: expected)
     }
   }
+
 }
 
 import Quick
