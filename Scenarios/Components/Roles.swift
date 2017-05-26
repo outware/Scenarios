@@ -74,9 +74,9 @@ public protocol Assertable {
 }
 
 
-/// Instances of conforming types are able to build scenarios by collecting multiple
+/// Instances of conforming types build scenarios by collecting multiple
 /// components (types which are `Preparable`, `Actionable`, `Assertable`) as they are
-/// built-up, and commiting the result to the test harness.
+/// built-up, and commit the result to the test harness.
 internal protocol ScenarioBuilder {
 
   /// Adds a specification to the scenario to-be-built.
