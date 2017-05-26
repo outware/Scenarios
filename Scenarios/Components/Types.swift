@@ -1,6 +1,4 @@
-//  Copyright © 2015 Outware Mobile. All rights reserved.
-
-// MARK: Types
+//  Copyright © 2017 Outware Mobile. All rights reserved.
 
 public final class Prepared: Assertable, Actionable, Extendable {
 
