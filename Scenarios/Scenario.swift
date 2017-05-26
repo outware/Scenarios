@@ -25,12 +25,12 @@ public final class Scenario: Preparable, Actionable, ScenarioBuilder {
   }
 
   public func Given(_ description: String, file: String = #file, line: UInt = #line) -> Prepared {
-    addStep(description, file: file, line: line)
+    add(stepWithDescription: description, file: file, line: line)
     return Prepared(self)
   }
 
   public func When(_ description: String, file: String = #file, line: UInt = #line) -> Actioned {
-    addStep(description, file: file, line: line)
+    add(stepWithDescription: description, file: file, line: line)
     return Actioned(self)
   }
 
@@ -70,7 +70,7 @@ public final class Scenario: Preparable, Actionable, ScenarioBuilder {
     commitFunc(description, file, line, closure)
   }
 
-  internal func addStep(_ description: String, file: String, line: UInt) {
+  internal func add(stepWithDescription description: String, file: String, line: UInt) {
     stepDescriptions.append(description: description, file: file, line: line)
   }
 
