@@ -21,7 +21,7 @@ public protocol Assertable {
 // MARK: Types
 
 public final class Prepared: Assertable, Actionable, Extendable {
-  fileprivate var builder: ScenarioBuilder
+  private var builder: ScenarioBuilder
 
   internal init(_ builder: ScenarioBuilder) {
     self.builder = builder
@@ -45,7 +45,7 @@ public final class Prepared: Assertable, Actionable, Extendable {
 }
 
 public final class Actioned: Assertable, Extendable {
-  fileprivate var builder: ScenarioBuilder
+  private var builder: ScenarioBuilder
 
   internal init(_ builder: ScenarioBuilder) {
     self.builder = builder
@@ -64,7 +64,7 @@ public final class Actioned: Assertable, Extendable {
 }
 
 public final class Asserted: Extendable {
-  fileprivate var builder: ScenarioBuilder
+  private var builder: ScenarioBuilder
 
   internal init(_ builder: ScenarioBuilder) {
     self.builder = builder
