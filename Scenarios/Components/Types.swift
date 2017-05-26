@@ -1,8 +1,8 @@
 //  Copyright © 2017 Outware Mobile. All rights reserved.
 
-/// A scenario that has had its preconditions prepared, and is ready to have its
-/// state acted upon, or to have state that is a result of preparing its _preconditions_
-/// asserted.
+/// A scenario that has had its preconditions prepared and is ready to:
+/// - have its state acted upon, or
+/// - have its prepared state asserted.
 ///
 /// - note: A scenario is generally `Prepared` as a result of a `Given` step, followed
 ///         by zero or more `And` steps.
@@ -17,7 +17,7 @@
 /// setup information such that their logged-in account is a "Type A" account.
 ///
 /// At this stage, the scenario is `Prepared` to:
-/// - have some state on the screen (such as the title of the screen) be asserted.
+/// - have some state on the screen (such as the title of the screen) be asserted, or
 /// - be manipulated / acted upon (for example, by tapping on a button, or scrolling down
 ///     a list), in preparation for future state assertion.
 public final class Prepared: Assertable, Actionable, Extendable {
