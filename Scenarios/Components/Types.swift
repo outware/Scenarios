@@ -46,6 +46,26 @@ public final class Prepared: Assertable, Actionable, Extendable {
 
 }
 
+
+/// A scenario that has had some intermediate action(s) performed (it has had preconditions
+/// prepared, and its test steps, the actions, performed), and is ready to have its
+/// state be asserted.
+///
+/// - note: A scenario is generally `Actioned` as a result of a `When` step, followed
+///         by zero or more `And` steps.
+///
+/// e.g.
+///
+/// - __Given__ the user is on the Home Screen
+/// - __When__ the user taps the 'Edit' Button
+/// - ...
+///
+/// This scenario performs steps to take the user to the home screen as part of its
+/// 'arrange' steps (setting up its preconditions). It then performs the intermediate
+/// action(s) which is being tested (in this case, tapping on the edit button).
+///
+/// At this stage, the scenario has had its test case `Actioned`, and is ready to 
+/// have its (new) state be asserted.
 public final class Actioned: Assertable, Extendable {
 
   private var builder: ScenarioBuilder
