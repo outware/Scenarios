@@ -37,7 +37,8 @@ public final class Prepared: Assertable, Actionable, Extendable {
     return Actioned(builder)
   }
 
-  @discardableResult public func Then(_ description: String, file: String = #file, line: UInt = #line) -> Asserted {
+  @discardableResult
+  public func Then(_ description: String, file: String = #file, line: UInt = #line) -> Asserted {
     builder.addStep(description, file: file, line: line)
     return Asserted(builder)
   }
@@ -55,7 +56,8 @@ public final class Actioned: Assertable, Extendable {
     return self
   }
 
-  @discardableResult public func Then(_ description: String, file: String = #file, line: UInt = #line) -> Asserted {
+  @discardableResult
+  public func Then(_ description: String, file: String = #file, line: UInt = #line) -> Asserted {
     builder.addStep(description, file: file, line: line)
     return Asserted(builder)
   }
@@ -68,6 +70,7 @@ public final class Asserted: Extendable {
     self.builder = builder
   }
 
+  @discardableResult
   public func And(_ description: String, file: String = #file, line: UInt = #line) -> Self {
     builder.addStep(description, file: file, line: line)
     return self
