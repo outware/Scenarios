@@ -2,14 +2,20 @@
 
 /// Scenarios which are being built whose most recent declaration can be extended.
 ///
-/// e.g.
-/// - Arranging (Preparing):
-///     Arranging pre-conditions for scenarios can be extended by doing further setup.
-/// - Acting:
-///     Acting on scenarios can be extended by doing further manipulation of
-///     model objects / user interface, for example.
-/// - Asserting: 
-///     Asserting results for scenarios can be extended by asserting multiple results.
+/// For example:
+///
+/// ## Arranging (Preparing):
+/// 
+/// Arranging pre-conditions for scenarios can be extended by doing further setup.
+/// 
+/// ## Acting:
+///
+/// Acting on scenarios can be extended by doing further manipulation of
+/// model objects / user interface, for example.
+///
+/// ## Asserting:
+///
+/// Asserting results for scenarios can be extended by asserting multiple results.
 public protocol Extendable {
 
   /// Specifies an extension to the most recent declaration of the scenario.
