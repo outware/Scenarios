@@ -37,11 +37,13 @@ final class ScenarioSpec: QuickSpec {
           expect(capturedName).to(equal("a new scenario"))
 
         }
+
       }
 
     }
 
   }
+
 }
 
 import Quick

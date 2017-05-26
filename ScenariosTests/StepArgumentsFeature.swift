@@ -1,6 +1,7 @@
 //  Copyright © 2015 Outware Mobile. All rights reserved.
 
 final class StepArgumentsFeature: Feature {
+
   override func scenarios() {
 
     Scenario("Single argument")
@@ -19,9 +20,11 @@ final class StepArgumentsFeature: Feature {
       .And("the third argument is baz")
 
   }
+
 }
 
 final class StepArgumentsSteps: StepDefinition {
+
   override func steps() {
 
     var capturedArgs: StepArguments!
@@ -61,6 +64,7 @@ final class StepArgumentsSteps: StepDefinition {
     }
 
   }
+
 }
 
 import Nimble
