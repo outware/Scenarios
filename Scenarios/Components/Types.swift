@@ -87,6 +87,33 @@ public final class Actioned: Assertable, Extendable {
 
 }
 
+
+/// A scenario that has had its state, post-test-case-execution, asserted.
+///
+/// - note: A scenario is generally `Asserted` as a result of a `Then` step, followed
+///         by zero or more `And` steps.
+///
+/// e.g.
+///
+/// - __Given__ the user is on the Home Screen
+/// - __When__ the user taps the 'Edit' Button
+/// - __Then__ the user is taken to the Edit Items Screen
+///
+/// This scenario performs steps to take the user to the home screen as part of its
+/// 'arrange' steps (setting up its preconditions). It then performs the intermediate
+/// action(s) which is being tested (in this case, tapping on the edit button). Finally,
+/// it 'assert's that the user is taken to the Edit Items screen (the semantics of
+/// determining that is up to the implementers).
+///
+/// - __Given__ the user is on the Home Screen
+/// - __Then__ the title of the screen is 'Home'
+///
+/// Similarly, this scenario performs steps to take the user to the home screen, if it
+/// is not the default screen displayed. It then 'assert's that the title of the screen
+/// is "Home".
+///
+/// At this stage, the scenario has `Asserted` its expectations of the results of
+/// the test case execution and is ready to be built.
 public final class Asserted: Extendable {
 
   private var builder: ScenarioBuilder
