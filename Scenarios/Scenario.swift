@@ -10,6 +10,7 @@
 /// block by looking up the step definitions based on the step names. The test
 /// fails if any of the steps are undefined.
 public final class Scenario: Preparable, Actionable {
+
   fileprivate let name: String
   fileprivate let file: String
   fileprivate let line: UInt
@@ -68,6 +69,7 @@ public final class Scenario: Preparable, Actionable {
   fileprivate func commit(_ description: String, file: String, line: UInt, closure: @escaping () -> ()) {
     commitFunc(description, file, line, closure)
   }
+
 }
 
 public typealias CommitFunc = (String, String, UInt, @escaping () -> ()) -> ()
@@ -77,16 +79,20 @@ private let quick_it: CommitFunc = { description, file, line, closure in
 }
 
 extension Scenario: ScenarioBuilder {
+
   func addStep(_ description: String, file: String, line: UInt) {
     stepDescriptions.append(description: description, file: file, line: line)
   }
+
 }
 
 private typealias StepMetadata = (description: String, file: String, line: UInt)
 
 private enum ResolvedSteps {
+
   case missingStep(StepMetadata)
   case matchedActions([StepActionFunc])
+
 }
 
 import Quick
