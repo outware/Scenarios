@@ -22,6 +22,7 @@ open class StepDefinition: QuickSpec {
   // MARK: Matching step definitions
 
   internal static func lookup(_ description: String, forStepInFile filePath: String, atLine lineNumber: UInt) -> () -> StepActionFunc? {
+
     let step = Step(name: description, inFile: filePath, atLine: lineNumber)
 
     return {
@@ -40,11 +41,12 @@ open class StepDefinition: QuickSpec {
         executingStep = nil
       }
     }
+
   }
 
   // MARK: Step definition hook
 
-  open func steps() {}
+  open func steps() { }
 
   open override func spec() {
     super.spec()
