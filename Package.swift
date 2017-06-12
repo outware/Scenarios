@@ -18,7 +18,7 @@ var package = Package(
     .Package(url: "https://github.com/Quick/Quick.git", majorVersion: 1),
     .Package(url: "https://github.com/sharplet/Regex.git", majorVersion: 1),
   ],
-  swiftLanguageVersions: [3],
+  swiftLanguageVersions: [3, 4],
   exclude: [
     "Carthage",
     "Demo",

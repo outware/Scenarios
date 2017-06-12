@@ -17,11 +17,20 @@ public final class Scenario: Preparable, Actionable, ScenarioBuilder {
   private let commitFunc: CommitFunc
   private var stepDescriptions: [StepMetadata] = []
 
-  public init(_ name: String, file: String = #file, line: UInt = #line, commit: @escaping CommitFunc = quick_it) {
+  public init(_ name: String, file: String = #file, line: UInt = #line, commit: @escaping CommitFunc) {
     self.name = name
     self.file = file
     self.line = line
     self.commitFunc = commit
+  }
+
+  public convenience init(_ name: String, file: String = #file, line: UInt = #line) {
+    self.init(
+      name,
+      file: file,
+      line: line,
+      commit: quick_it
+    )
   }
 
   public func Given(_ description: String, file: String = #file, line: UInt = #line) -> Prepared {
@@ -71,7 +80,7 @@ public final class Scenario: Preparable, Actionable, ScenarioBuilder {
   }
 
   internal func add(stepWithDescription description: String, file: String, line: UInt) {
-    stepDescriptions.append(description: description, file: file, line: line)
+    stepDescriptions.append((description: description, file: file, line: line))
   }
 
 }

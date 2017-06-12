@@ -27,8 +27,9 @@ open class StepDefinition: QuickSpec {
 
     return {
       guard let (args, definition) = stepDefinitions.lazy
-        .flatMap({ pattern, function in
-          pattern.firstMatch(in: description).map {
+        .flatMap({ args -> (StepArguments, StepDefinitionFunc)? in
+          let (pattern, function) = args
+          return pattern.firstMatch(in: description).map {
             (StepArguments($0), function)
           }
         })
