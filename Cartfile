@@ -1,2 +1,2 @@
 github "Quick/Quick" ~> 1.1.0
-github "sharplet/Regex" "swift-3"
+github "sharplet/Regex" ~> 1.0
