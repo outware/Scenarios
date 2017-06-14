@@ -34,14 +34,20 @@ namespace :test do
     sh "xcodebuild test -configuration Release -workspace Demo/Demo.xcworkspace -scheme Demo-iOS -destination '#{DESTINATION}' | xcpretty -c; exit ${PIPESTATUS[0]}"
   end
 
+  desc "Run all tests"
+  task :all => ["test:package", "test:specs", "test:demo"]
+
 end
+
+desc "Run the specs & UI tests"
+task :test => ["test:specs", "test:demo"]
 
 desc "Cleans the Scenarios development workspace"
 task :clean do
   sh "xcodebuild clean -configuration Release -scheme #{SCHEME} -destination '#{DESTINATION}' | xcpretty -c; exit ${PIPESTATUS[0]}"
 end
 
-task :default => ["test:package", "test:specs", "test:demo"]
+task :default => :test
 
 # Utility
 

@@ -4,4 +4,4 @@ install:
   - brew update && brew uninstall --force carthage && brew install carthage
   - gem install xcpretty
 before_script: carthage bootstrap --platform iphoneos
-script: rake
+script: rake test:all
