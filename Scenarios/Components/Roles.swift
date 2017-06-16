@@ -25,7 +25,7 @@ public protocol Extendable {
   ///
   /// - returns: A scenario which captures all specifications in the previous scenario
   ///            as well as the new specification.
-  func And(_ description: String, file: String, line: UInt) -> Self
+  func And(_ description: String, file: StaticString, line: UInt) -> Self
 
 }
 
@@ -42,7 +42,7 @@ public protocol Preparable {
   /// - returns: A scenario which has had some preparation / arranging done.
   ///
   /// - seealso: Extendable
-  func Given(_ description: String, file: String, line: UInt) -> Prepared
+  func Given(_ description: String, file: StaticString, line: UInt) -> Prepared
 
 }
 
@@ -59,7 +59,7 @@ public protocol Actionable {
   /// - returns: A scenario which has had some action performed.
   ///
   /// - seealso: Extendable
-  func When(_ description: String, file: String, line: UInt) -> Actioned
+  func When(_ description: String, file: StaticString, line: UInt) -> Actioned
 
 }
 
@@ -75,7 +75,7 @@ public protocol Assertable {
   ///                    state be confirmed.
   ///
   /// - seealso: Extendable
-  func Then(_ description: String, file: String, line: UInt) -> Asserted
+  func Then(_ description: String, file: StaticString, line: UInt) -> Asserted
   
 }
 
@@ -92,6 +92,6 @@ internal protocol ScenarioBuilder {
   /// - parameters:
   ///     - description: A specification detailing the steps to be appended to the
   ///                    current state of the scenario.
-  mutating func add(stepWithDescription description: String, file: String, line: UInt)
+  mutating func add(stepWithDescription description: String, file: StaticString, line: UInt)
 
 }
