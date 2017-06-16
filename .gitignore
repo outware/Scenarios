@@ -6,8 +6,14 @@ xcuserdata/
 *.gcno
 *.gcda
 
+# swiftpm
+/.build
+/Package.pins
+/Package.resolved
+
 # Carthage
 /Carthage
+/Cartfile.resolved
 
 # Mac OS X
 .DS_Store

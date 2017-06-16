@@ -105,11 +105,19 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		4AD1623F1EEF30E6003E79C0 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CE05089B1BDDE75100B21C8C /* ScenariosTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		CE0508831BDDE75100B21C8C = {
 			isa = PBXGroup;
 			children = (
 				CE05088F1BDDE75100B21C8C /* Scenarios */,
-				CE05089B1BDDE75100B21C8C /* ScenariosTests */,
+				4AD1623F1EEF30E6003E79C0 /* Tests */,
 				CE0508B51BDDE94A00B21C8C /* Frameworks */,
 				CE05088E1BDDE75100B21C8C /* Products */,
 			);
@@ -438,7 +446,6 @@
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -465,7 +472,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.outware.$(PROJECT_NAME)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -476,11 +482,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = ScenariosTests/Info.plist;
+				INFOPLIST_FILE = Tests/ScenariosTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.outware.$(PROJECT_NAME)Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -491,11 +496,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = ScenariosTests/Info.plist;
+				INFOPLIST_FILE = Tests/ScenariosTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.outware.$(PROJECT_NAME)Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

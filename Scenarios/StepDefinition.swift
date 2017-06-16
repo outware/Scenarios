@@ -5,6 +5,9 @@ internal typealias StepActionFunc = () -> Void
 
 open class StepDefinition: QuickSpec {
 
+  private typealias UnmatchedStep = (pattern: Regex, function: StepDefinitionFunc)
+  private typealias MatchedStep = (arguments: StepArguments, function: StepDefinitionFunc)
+
   // MARK: Step definition API
 
   open func Given(_ pattern: String, definition: @escaping StepDefinitionFunc) {
@@ -25,13 +28,15 @@ open class StepDefinition: QuickSpec {
 
     let step = Step(name: description, inFile: filePath, atLine: lineNumber)
 
+    func matchingStep(_ step: UnmatchedStep) -> MatchedStep? {
+      return step.pattern.firstMatch(in: description).map {
+        MatchedStep(arguments: StepArguments($0), function: step.function)
+      }
+    }
+
     return {
       guard let (args, definition) = stepDefinitions.lazy
-        .flatMap({ pattern, function in
-          pattern.firstMatch(in: description).map {
-            (StepArguments($0), function)
-          }
-        })
+        .flatMap(matchingStep)
         .first
       else { return nil }
 
@@ -60,7 +65,7 @@ open class StepDefinition: QuickSpec {
   // MARK: Registering step definitions
 
   private func registerStep(withPattern pattern: String, definition: @escaping StepDefinitionFunc) {
-    let step: (Regex, StepDefinitionFunc) = (regex(forPattern: pattern), definition)
+    let step = UnmatchedStep(pattern: regex(forPattern: pattern), function: definition)
     type(of: self).stepDefinitions.append(step)
   }
 
@@ -75,7 +80,7 @@ open class StepDefinition: QuickSpec {
     }
   }
 
-  private static var stepDefinitions: [(Regex, StepDefinitionFunc)] = []
+  private static var stepDefinitions: [UnmatchedStep] = []
 
 }
 
