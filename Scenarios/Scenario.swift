@@ -12,19 +12,19 @@
 public final class Scenario: Preparable, Actionable, ScenarioBuilder {
 
   private let name: String
-  private let file: String
+  private let file: StaticString
   private let line: UInt
   private let commitFunc: CommitFunc
   private var stepDescriptions: [StepMetadata] = []
 
-  public init(_ name: String, file: String = #file, line: UInt = #line, commit: @escaping CommitFunc) {
+  public init(_ name: String, file: StaticString = #file, line: UInt = #line, commit: @escaping CommitFunc) {
     self.name = name
     self.file = file
     self.line = line
     self.commitFunc = commit
   }
 
-  public convenience init(_ name: String, file: String = #file, line: UInt = #line) {
+  public convenience init(_ name: String, file: StaticString = #file, line: UInt = #line) {
     self.init(
       name,
       file: file,
@@ -33,12 +33,12 @@ public final class Scenario: Preparable, Actionable, ScenarioBuilder {
     )
   }
 
-  public func Given(_ description: String, file: String = #file, line: UInt = #line) -> Prepared {
+  public func Given(_ description: String, file: StaticString = #file, line: UInt = #line) -> Prepared {
     add(stepWithDescription: description, file: file, line: line)
     return Prepared(self)
   }
 
-  public func When(_ description: String, file: String = #file, line: UInt = #line) -> Actioned {
+  public func When(_ description: String, file: StaticString = #file, line: UInt = #line) -> Actioned {
     add(stepWithDescription: description, file: file, line: line)
     return Actioned(self)
   }
@@ -66,7 +66,7 @@ public final class Scenario: Preparable, Actionable, ScenarioBuilder {
 
       switch result {
       case let .missingStep(metadata):
-        XCTFail("couldn't match step description: '\(metadata.description)'", line: metadata.line)
+        XCTFail("couldn't match step description: '\(metadata.description)'", file: metadata.file, line: metadata.line)
       case let .matchedActions(actions):
         for action in actions {
           action()
@@ -75,23 +75,23 @@ public final class Scenario: Preparable, Actionable, ScenarioBuilder {
     }
   }
 
-  private func commit(_ description: String, file: String, line: UInt, closure: @escaping () -> Void) {
+  private func commit(_ description: String, file: StaticString, line: UInt, closure: @escaping () -> Void) {
     commitFunc(description, file, line, closure)
   }
 
-  internal func add(stepWithDescription description: String, file: String, line: UInt) {
+  internal func add(stepWithDescription description: String, file: StaticString, line: UInt) {
     stepDescriptions.append((description: description, file: file, line: line))
   }
 
 }
 
-public typealias CommitFunc = (String, String, UInt, @escaping () -> Void) -> Void
+public typealias CommitFunc = (String, StaticString, UInt, @escaping () -> Void) -> Void
 
 private let quick_it: CommitFunc = { description, file, line, closure in
-  it(description, file: file, line: line, closure: closure)
+  it(description, file: String(describing: file), line: line, closure: closure)
 }
 
-private typealias StepMetadata = (description: String, file: String, line: UInt)
+private typealias StepMetadata = (description: String, file: StaticString, line: UInt)
 
 private enum ResolvedSteps {
 

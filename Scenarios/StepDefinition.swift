@@ -24,7 +24,7 @@ open class StepDefinition: QuickSpec {
 
   // MARK: Matching step definitions
 
-  internal static func lookup(_ description: String, forStepInFile filePath: String, atLine lineNumber: UInt) -> () -> StepActionFunc? {
+  internal static func lookup(_ description: String, forStepInFile filePath: StaticString, atLine lineNumber: UInt) -> () -> StepActionFunc? {
 
     let step = Step(name: description, inFile: filePath, atLine: lineNumber)
 

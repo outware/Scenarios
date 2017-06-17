@@ -12,9 +12,9 @@ internal struct Step {
   let name: String
   let sourceLocation: SourceLocation
 
-  init(name: String, inFile filePath: String, atLine lineNumber: UInt) {
+  init(name: String, inFile filePath: StaticString, atLine lineNumber: UInt) {
     self.name = name
-    self.sourceLocation = SourceLocation(filePath: filePath, lineNumber: lineNumber)
+    self.sourceLocation = SourceLocation(filePath: String(describing: filePath), lineNumber: lineNumber)
   }
 
 }
