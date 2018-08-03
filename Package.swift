@@ -1,32 +1,31 @@
-// swift-tools-version:3.1
+// swift-tools-version:4.0
 
-import Foundation
 import PackageDescription
 
-var isTesting: Bool {
-  let environment = ProcessInfo.processInfo.environment
-  guard let value = environment["SCENARIOS_SWIFTPM_TEST"] else { return false }
-  return NSString(string: value).boolValue
-}
-
-var package = Package(
+let package = Package(
   name: "Scenarios",
-  targets: [
-    Target(name: "Scenarios"),
-  ],
   dependencies: [
-    .Package(url: "https://github.com/Quick/Quick.git", majorVersion: 1),
-    .Package(url: "https://github.com/sharplet/Regex.git", majorVersion: 1),
+    .package(url: "https://github.com/sharplet/Regex.git", from: "1.0.0"),
+    .package(url: "https://github.com/Quick/Quick.git", from: "1.0.0"),
+    .package(url: "https://github.com/Quick/Nimble.git", from: "7.0.0"),
   ],
-  swiftLanguageVersions: [3, 4],
-  exclude: [
-    "Carthage",
-    "Demo",
-  ]
+  targets: [
+    .target(
+      name: "Scenarios",
+      dependencies: [
+        "Quick",
+        "Regex",
+      ],
+      path: "Scenarios"
+    ),
+    .testTarget(
+      name: "ScenariosTests",
+      dependencies: [
+        "Scenarios",
+        "Nimble",
+      ],
+      path: "Tests"
+    ),
+  ],
+  swiftLanguageVersions: [3, 4]
 )
-
-if isTesting {
-  package.dependencies.append(contentsOf: [
-    .Package(url: "https://github.com/Quick/Nimble.git", majorVersion: 7),
-  ])
-}
