@@ -8,7 +8,7 @@ public struct StepArguments: Collection {
   private let captures: [String]
 
   internal init(_ matchResult: MatchResult) {
-    self.captures = matchResult.captures.flatMap { $0 }
+    self.captures = matchResult.captures.compactMap { $0 }
   }
 
   public subscript(index: Int) -> String {
