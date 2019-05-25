@@ -4,6 +4,9 @@ import PackageDescription
 
 let package = Package(
   name: "Scenarios",
+  products: [
+    .library(name: "Scenarios", targets: ["Scenarios"]),
+  ],
   dependencies: [
     .package(url: "https://github.com/sharplet/Regex.git", from: "2.0.0"),
     .package(url: "https://github.com/Quick/Quick.git", from: "2.0.0"),
