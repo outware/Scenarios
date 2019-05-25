@@ -1,5 +1,7 @@
 //  Copyright © 2015 Adam Sharp. All rights reserved.
 
+import Scenarios
+
 final class GreetingFeature: Feature {
   override func scenarios() {
 
@@ -18,5 +20,3 @@ final class GreetingFeature: Feature {
 
   }
 }
-
-import Scenarios

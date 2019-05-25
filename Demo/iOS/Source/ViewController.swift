@@ -1,7 +1,8 @@
 //  Copyright © 2015 Adam Sharp. All rights reserved.
 
-class ViewController: UIViewController {
+import UIKit
 
+class ViewController: UIViewController {
   @IBOutlet var nameField: UITextField!
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -12,7 +13,4 @@ class ViewController: UIViewController {
       break
     }
   }
-
 }
-
-import UIKit

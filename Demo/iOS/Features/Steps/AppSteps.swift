@@ -1,5 +1,9 @@
 //  Copyright © 2015 Adam Sharp. All rights reserved.
 
+import Nimble
+import Scenarios
+import XCTest
+
 final class AppSteps: StepDefinition {
   override func steps() {
 
@@ -9,7 +13,3 @@ final class AppSteps: StepDefinition {
 
   }
 }
-
-import Scenarios
-import Nimble
-import XCTest
