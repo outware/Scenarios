@@ -1,7 +1,8 @@
 //  Copyright © 2015 Adam Sharp. All rights reserved.
 
-final class GreetingViewController: UIViewController {
+import UIKit
 
+final class GreetingViewController: UIViewController {
   @IBOutlet var greetingLabel: UILabel!
 
   var subject: String?
@@ -14,7 +15,4 @@ final class GreetingViewController: UIViewController {
     super.viewDidLoad()
     greetingLabel.text = greeting
   }
-
 }
-
-import UIKit

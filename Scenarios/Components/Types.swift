@@ -21,7 +21,6 @@
 /// - be manipulated / acted upon (for example, by tapping on a button, or scrolling down
 ///     a list), in preparation for future state assertion.
 public final class Prepared: Assertable, Actionable, Extendable {
-
   private var builder: ScenarioBuilder
 
   internal init(_ builder: ScenarioBuilder) {
@@ -43,9 +42,7 @@ public final class Prepared: Assertable, Actionable, Extendable {
     builder.add(stepWithDescription: description, file: file, line: line)
     return Asserted(builder)
   }
-
 }
-
 
 /// A scenario that has had some intermediate action(s) performed (it has had preconditions
 /// prepared, and its test steps, the actions, performed), and is ready to have its
@@ -67,7 +64,6 @@ public final class Prepared: Assertable, Actionable, Extendable {
 /// At this stage, the scenario has had its test case `Actioned`, and is ready to 
 /// have its (new) state be asserted.
 public final class Actioned: Assertable, Extendable {
-
   private var builder: ScenarioBuilder
 
   internal init(_ builder: ScenarioBuilder) {
@@ -84,9 +80,7 @@ public final class Actioned: Assertable, Extendable {
     builder.add(stepWithDescription: description, file: file, line: line)
     return Asserted(builder)
   }
-
 }
-
 
 /// A scenario that has had its state, post-test-case-execution, asserted.
 ///
@@ -115,7 +109,6 @@ public final class Actioned: Assertable, Extendable {
 /// At this stage, the scenario has `Asserted` its expectations of the results of
 /// the test case execution and is ready to be built.
 public final class Asserted: Extendable {
-
   private var builder: ScenarioBuilder
 
   internal init(_ builder: ScenarioBuilder) {
@@ -127,5 +120,4 @@ public final class Asserted: Extendable {
     builder.add(stepWithDescription: description, file: file, line: line)
     return self
   }
-
 }

@@ -17,7 +17,6 @@
 ///
 /// Asserting results for scenarios can be extended by asserting multiple results.
 public protocol Extendable {
-
   /// Specifies an extension to the most recent declaration of the scenario.
   ///
   /// - parameters:
@@ -26,14 +25,11 @@ public protocol Extendable {
   /// - returns: A scenario which captures all specifications in the previous scenario
   ///            as well as the new specification.
   func And(_ description: String, file: StaticString, line: UInt) -> Self
-
 }
-
 
 /// Scenarios which have yet to have any specification as to how they should be
 /// prepared / how the conditions for the scenario should be __arranged__.
 public protocol Preparable {
-
   /// Specifies the preparation / arrangement step for the scenario.
   ///
   /// - parameters:
@@ -43,14 +39,11 @@ public protocol Preparable {
   ///
   /// - seealso: Extendable
   func Given(_ description: String, file: StaticString, line: UInt) -> Prepared
-
 }
-
 
 /// Scenarios for which the steps to carry out the tests which they capture have not
 /// yet been specified.
 public protocol Actionable {
-
   /// Specifies the action step for the scenario.
   ///
   /// - parameters:
@@ -60,14 +53,11 @@ public protocol Actionable {
   ///
   /// - seealso: Extendable
   func When(_ description: String, file: StaticString, line: UInt) -> Actioned
-
 }
-
 
 /// Scenarios which have had some action / manipulation performed, and are ready to have
 /// results be asserted.
 public protocol Assertable {
-
   /// Specifies the assertion step for the scenario.
   ///
   /// - parameters:
@@ -76,15 +66,12 @@ public protocol Assertable {
   ///
   /// - seealso: Extendable
   func Then(_ description: String, file: StaticString, line: UInt) -> Asserted
-  
 }
-
 
 /// Instances of conforming types build scenarios by collecting multiple
 /// components (types which are `Preparable`, `Actionable`, `Assertable`) as they are
 /// built-up, and commit the result to the test harness.
 internal protocol ScenarioBuilder {
-
   /// Adds a specification to the scenario to-be-built.
   ///
   /// - note: Agnostic to the current stage of the built-up scenario.
@@ -93,5 +80,4 @@ internal protocol ScenarioBuilder {
   ///     - description: A specification detailing the steps to be appended to the
   ///                    current state of the scenario.
   mutating func add(stepWithDescription description: String, file: StaticString, line: UInt)
-
 }

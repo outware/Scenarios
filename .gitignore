@@ -8,7 +8,6 @@ xcuserdata/
 
 # swiftpm
 /.build
-/Package.pins
 /Package.resolved
 
 # Carthage

@@ -1,10 +1,12 @@
 //  Copyright © 2015 Outware Mobile. All rights reserved.
 
+import Quick
+import Regex
+
 public typealias StepDefinitionFunc = (StepArguments) -> Void
 internal typealias StepActionFunc = () -> Void
 
 open class StepDefinition: QuickSpec {
-
   private typealias UnmatchedStep = (pattern: Regex, function: StepDefinitionFunc)
   private typealias MatchedStep = (arguments: StepArguments, function: StepDefinitionFunc)
 
@@ -25,7 +27,6 @@ open class StepDefinition: QuickSpec {
   // MARK: Matching step definitions
 
   internal static func lookup(_ description: String, forStepInFile filePath: StaticString, atLine lineNumber: UInt) -> () -> StepActionFunc? {
-
     let step = Step(name: description, inFile: filePath, atLine: lineNumber)
 
     func matchingStep(_ step: UnmatchedStep) -> MatchedStep? {
@@ -36,7 +37,7 @@ open class StepDefinition: QuickSpec {
 
     return {
       guard let (args, definition) = stepDefinitions.lazy
-        .flatMap(matchingStep)
+        .compactMap(matchingStep)
         .first
       else { return nil }
 
@@ -46,7 +47,6 @@ open class StepDefinition: QuickSpec {
         executingStep = nil
       }
     }
-
   }
 
   // MARK: Step definition hook
@@ -81,8 +81,4 @@ open class StepDefinition: QuickSpec {
   }
 
   private static var stepDefinitions: [UnmatchedStep] = []
-
 }
-
-import Quick
-import Regex

@@ -1,13 +1,16 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.0
 
 import PackageDescription
 
 let package = Package(
   name: "Scenarios",
+  products: [
+    .library(name: "Scenarios", targets: ["Scenarios"]),
+  ],
   dependencies: [
-    .package(url: "https://github.com/sharplet/Regex.git", from: "1.0.0"),
-    .package(url: "https://github.com/Quick/Quick.git", from: "1.0.0"),
-    .package(url: "https://github.com/Quick/Nimble.git", from: "7.0.0"),
+    .package(url: "https://github.com/sharplet/Regex.git", from: "2.0.0"),
+    .package(url: "https://github.com/Quick/Quick.git", from: "2.0.0"),
+    .package(url: "https://github.com/Quick/Nimble.git", from: "8.0.0"),
   ],
   targets: [
     .target(
@@ -27,5 +30,5 @@ let package = Package(
       path: "Tests"
     ),
   ],
-  swiftLanguageVersions: [3, 4]
+  swiftLanguageVersions: [.v5]
 )

@@ -1,9 +1,10 @@
 //  Copyright © 2015 Outware Mobile. All rights reserved.
 
+import Quick
+
 /// Subclass `Feature` and override `scenarios()` to define the steps for the
 /// scenarios in your feature.
 open class Feature: QuickSpec {
-
   override open func setUp() {
     super.setUp()
     continueAfterFailure = false
@@ -18,7 +19,7 @@ open class Feature: QuickSpec {
 #if swift(>=4)
   override open func recordFailure(withDescription description: String, inFile filePath: String, atLine lineNumber: Int, expected: Bool) {
     if let sourceLocation = StepDefinition.executingStep?.sourceLocation {
-      super.recordFailure(withDescription: description, inFile: sourceLocation.filePath, atLine: Int(sourceLocation.lineNumber), expected: expected)
+      super.recordFailure(withDescription: description, inFile: String(describing: sourceLocation.filePath), atLine: Int(sourceLocation.lineNumber), expected: expected)
     } else {
       super.recordFailure(withDescription: description, inFile: filePath, atLine: lineNumber, expected: expected)
     }
@@ -32,7 +33,4 @@ open class Feature: QuickSpec {
     }
   }
 #endif
-
 }
-
-import Quick

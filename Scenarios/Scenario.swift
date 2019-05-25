@@ -1,5 +1,11 @@
 //  Copyright © 2015 Outware Mobile. All rights reserved.
 
+#if !SWIFT_PACKAGE
+import func Nimble.fail
+#endif
+import Quick
+import XCTest
+
 /// Define a scenario by giving it a name and then adding steps, like so:
 ///
 ///     Scenario("Greeting on first load")
@@ -10,7 +16,6 @@
 /// block by looking up the step definitions based on the step names. The test
 /// fails if any of the steps are undefined.
 public final class Scenario: Preparable, Actionable, ScenarioBuilder {
-
   private let name: String
   private let file: StaticString
   private let line: UInt
@@ -82,23 +87,21 @@ public final class Scenario: Preparable, Actionable, ScenarioBuilder {
   internal func add(stepWithDescription description: String, file: StaticString, line: UInt) {
     stepDescriptions.append((description: description, file: file, line: line))
   }
-
 }
 
 public typealias CommitFunc = (String, StaticString, UInt, @escaping () -> Void) -> Void
 
 private let quick_it: CommitFunc = { description, file, line, closure in
+#if SWIFT_PACKAGE
+  it(description, file: file, line: line, closure: closure)
+#else
   it(description, file: String(describing: file), line: line, closure: closure)
+#endif
 }
 
 private typealias StepMetadata = (description: String, file: StaticString, line: UInt)
 
 private enum ResolvedSteps {
-
   case missingStep(StepMetadata)
   case matchedActions([StepActionFunc])
-
 }
-
-import Quick
-import XCTest
